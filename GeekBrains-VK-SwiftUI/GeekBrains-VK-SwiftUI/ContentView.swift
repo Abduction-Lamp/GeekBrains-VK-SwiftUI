@@ -17,16 +17,18 @@ struct ContentView: View {
     
     
     private let keyboardHeightPublisher = Publishers.Merge(
-        NotificationCenter.default.publisher(for: UIResponder.keyboardWillChangeFrameNotification)
+            NotificationCenter.default.publisher(for: UIResponder.keyboardWillChangeFrameNotification)
                 .compactMap { $0.userInfo?["UIKeyboardFrameEndUserInfoKey"] as? CGRect }
                 .map { $0.size.height },
-        NotificationCenter.default.publisher(for: UIResponder.keyboardWillHideNotification)
-            .map { _ -> CGFloat in 0 })
+            NotificationCenter.default.publisher(for: UIResponder.keyboardWillHideNotification)
+                .map { _ -> CGFloat in 0 }
+        )
         .removeDuplicates()
     
     
     
     var body: some View {
+        
         GeometryReader { geometry in
             ScrollView {
                 VStack {
@@ -66,15 +68,13 @@ struct ContentView: View {
                 }
                 .frame(minWidth: geometry.size.width, idealWidth: geometry.size.width, maxWidth: geometry.size.width)
             }
-            .padding(.bottom, keyboardHeight)
             .onReceive(keyboardHeightPublisher) { height in
                 withAnimation(Animation.easeInOut(duration: 0.5)) {
-                    self.keyboardHeight = height - 20
+                    self.keyboardHeight = height - 220
                 }
             }
-            .onTapGesture {
-                UIApplication.shared.endEditing()
-            }
+            .onTapGesture { UIApplication.shared.endEditing() }
+            .padding(.bottom, keyboardHeight)
         }
     }
 }
