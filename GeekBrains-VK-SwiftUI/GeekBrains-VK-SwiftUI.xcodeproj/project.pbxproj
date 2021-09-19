@@ -55,11 +55,11 @@
 			isa = PBXGroup;
 			children = (
 				4EF4B6DF26ECF6E100CB5D09 /* GeekBrains_VK_SwiftUIApp.swift */,
+				4E0E252B26F73E2300C66F19 /* ConstUIStyle.swift */,
 				4EF4B6E126ECF6E100CB5D09 /* ContentView.swift */,
 				4EF4B6E326ECF6E200CB5D09 /* Assets.xcassets */,
 				4EF4B6E826ECF6E200CB5D09 /* Info.plist */,
 				4EF4B6E526ECF6E200CB5D09 /* Preview Content */,
-				4E0E252B26F73E2300C66F19 /* ConstUIStyle.swift */,
 			);
 			path = "GeekBrains-VK-SwiftUI";
 			sourceTree = "<group>";
