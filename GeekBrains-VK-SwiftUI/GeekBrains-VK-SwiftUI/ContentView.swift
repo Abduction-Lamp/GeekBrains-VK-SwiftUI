@@ -11,6 +11,8 @@ import Combine
 
 struct ContentView: View {
     
+    private let style = ConstUIStyle.instances
+    
     @State private var login = ""
     @State private var password = ""
     @State private var keyboardHeight: CGFloat = 0
@@ -55,10 +57,9 @@ struct ContentView: View {
                                 .bold()
                                 .frame(width: 80, height: 37, alignment: .center)
                                 .foregroundColor(.white)
-                                .background(Color.init(red: 33/255, green: 111/255, blue: 243/255))
+                                .background(style.vkBrandColor)
                         }
                         .frame(width: 80, height: 37, alignment: .center)
-                        .border(Color.init(red: 33/255, green: 111/255, blue: 243/255), width: /*@START_MENU_TOKEN@*/1/*@END_MENU_TOKEN@*/)
                         .cornerRadius(10.0)
                         .padding(.top, 25)
                         .disabled(login.isEmpty || password.isEmpty)
