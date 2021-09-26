@@ -11,9 +11,19 @@ import Combine
 
 struct ContentView: View {
     
+    let friend = FriendViewModel(name: "Иван Иванов", avatar: "superman")
+    let group = GroupViewModel(name: "GeekBrains: iOS - разработка", avatar: "artificial-intelligence")
+    let new = NewsViewModel(name: "Новости: Толстой", avatar: "launch")
+    
+    
     var body: some View {
         
-        SignIn()
+//        SignIn()
+        ScrollView(.vertical, showsIndicators: false) {
+            NamesPrototype(model: friend)
+            NamesPrototype(model: group)
+            NewsPrototype(model: new)
+        }
     }
 }
 
@@ -23,6 +33,3 @@ struct ContentView: View {
 //        ContentView()
 //    }
 //}
-
-
-
