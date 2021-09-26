@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4E0E252C26F73E2300C66F19 /* ConstUIStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E0E252B26F73E2300C66F19 /* ConstUIStyle.swift */; };
+		4E517FD0270088A20021967F /* SignIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E517FCF270088A20021967F /* SignIn.swift */; };
 		4EF4B6E026ECF6E100CB5D09 /* GeekBrains_VK_SwiftUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF4B6DF26ECF6E100CB5D09 /* GeekBrains_VK_SwiftUIApp.swift */; };
 		4EF4B6E226ECF6E100CB5D09 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF4B6E126ECF6E100CB5D09 /* ContentView.swift */; };
 		4EF4B6E426ECF6E200CB5D09 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4EF4B6E326ECF6E200CB5D09 /* Assets.xcassets */; };
@@ -16,6 +17,7 @@
 
 /* Begin PBXFileReference section */
 		4E0E252B26F73E2300C66F19 /* ConstUIStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstUIStyle.swift; sourceTree = "<group>"; };
+		4E517FCF270088A20021967F /* SignIn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignIn.swift; sourceTree = "<group>"; };
 		4EF4B6DC26ECF6E100CB5D09 /* GeekBrains-VK-SwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "GeekBrains-VK-SwiftUI.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4EF4B6DF26ECF6E100CB5D09 /* GeekBrains_VK_SwiftUIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeekBrains_VK_SwiftUIApp.swift; sourceTree = "<group>"; };
 		4EF4B6E126ECF6E100CB5D09 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -35,6 +37,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4E517FCE270088330021967F /* SignIn */ = {
+			isa = PBXGroup;
+			children = (
+				4E517FCF270088A20021967F /* SignIn.swift */,
+			);
+			path = SignIn;
+			sourceTree = "<group>";
+		};
 		4EF4B6D326ECF6E100CB5D09 = {
 			isa = PBXGroup;
 			children = (
@@ -54,9 +64,10 @@
 		4EF4B6DE26ECF6E100CB5D09 /* GeekBrains-VK-SwiftUI */ = {
 			isa = PBXGroup;
 			children = (
+				4E517FCE270088330021967F /* SignIn */,
 				4EF4B6DF26ECF6E100CB5D09 /* GeekBrains_VK_SwiftUIApp.swift */,
-				4E0E252B26F73E2300C66F19 /* ConstUIStyle.swift */,
 				4EF4B6E126ECF6E100CB5D09 /* ContentView.swift */,
+				4E0E252B26F73E2300C66F19 /* ConstUIStyle.swift */,
 				4EF4B6E326ECF6E200CB5D09 /* Assets.xcassets */,
 				4EF4B6E826ECF6E200CB5D09 /* Info.plist */,
 				4EF4B6E526ECF6E200CB5D09 /* Preview Content */,
@@ -144,6 +155,7 @@
 				4EF4B6E226ECF6E100CB5D09 /* ContentView.swift in Sources */,
 				4EF4B6E026ECF6E100CB5D09 /* GeekBrains_VK_SwiftUIApp.swift in Sources */,
 				4E0E252C26F73E2300C66F19 /* ConstUIStyle.swift in Sources */,
+				4E517FD0270088A20021967F /* SignIn.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
