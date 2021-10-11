@@ -28,6 +28,7 @@ struct MainView: View {
                     Text(tabs[1])
                 }
                 .tag(1)
+
             
             NewsTable()
                 .tabItem {
@@ -36,6 +37,6 @@ struct MainView: View {
                 }
                 .tag(2)
         }
-        .navigationTitle(tabs[selectedTab])
+        .navigationBarTitle(tabs[selectedTab], displayMode: .inline)
     }
 }

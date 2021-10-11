@@ -21,6 +21,7 @@
 		4E67161F271330A1003BD400 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E67161E271330A1003BD400 /* MainView.swift */; };
 		4E67162227134203003BD400 /* GroupsTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E67162127134203003BD400 /* GroupsTable.swift */; };
 		4E67162527134622003BD400 /* NewsTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E67162427134622003BD400 /* NewsTable.swift */; };
+		4ED1AF1927147AF600C72D0E /* FriendGallery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED1AF1827147AF600C72D0E /* FriendGallery.swift */; };
 		4EF4B6E026ECF6E100CB5D09 /* GeekBrains_VK_SwiftUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF4B6DF26ECF6E100CB5D09 /* GeekBrains_VK_SwiftUIApp.swift */; };
 		4EF4B6E226ECF6E100CB5D09 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF4B6E126ECF6E100CB5D09 /* ContentView.swift */; };
 		4EF4B6E426ECF6E200CB5D09 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4EF4B6E326ECF6E200CB5D09 /* Assets.xcassets */; };
@@ -42,6 +43,7 @@
 		4E67161E271330A1003BD400 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		4E67162127134203003BD400 /* GroupsTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsTable.swift; sourceTree = "<group>"; };
 		4E67162427134622003BD400 /* NewsTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsTable.swift; sourceTree = "<group>"; };
+		4ED1AF1827147AF600C72D0E /* FriendGallery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendGallery.swift; sourceTree = "<group>"; };
 		4EF4B6DC26ECF6E100CB5D09 /* GeekBrains-VK-SwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "GeekBrains-VK-SwiftUI.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4EF4B6DF26ECF6E100CB5D09 /* GeekBrains_VK_SwiftUIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeekBrains_VK_SwiftUIApp.swift; sourceTree = "<group>"; };
 		4EF4B6E126ECF6E100CB5D09 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -110,6 +112,7 @@
 			isa = PBXGroup;
 			children = (
 				4E67161C27132BCB003BD400 /* FriendsTable.swift */,
+				4ED1AF1827147AF600C72D0E /* FriendGallery.swift */,
 			);
 			path = Friends;
 			sourceTree = "<group>";
@@ -258,6 +261,7 @@
 				4E517FD0270088A20021967F /* SignIn.swift in Sources */,
 				4E517FD627009AD40021967F /* CircleShadowViewModifier.swift in Sources */,
 				4E517FDB2700A7550021967F /* NewsPrototype.swift in Sources */,
+				4ED1AF1927147AF600C72D0E /* FriendGallery.swift in Sources */,
 				4E67161D27132BCB003BD400 /* FriendsTable.swift in Sources */,
 				4E67162527134622003BD400 /* NewsTable.swift in Sources */,
 			);

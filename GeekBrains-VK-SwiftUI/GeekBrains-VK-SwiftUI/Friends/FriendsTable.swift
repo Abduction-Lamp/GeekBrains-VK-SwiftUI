@@ -9,7 +9,7 @@ import SwiftUI
 
 struct FriendsTable: View {
     
-    private var friends: [FriendViewModel] = [
+    private var friendsData: [FriendViewModel] = [
         FriendViewModel(name: "Олег Иванов", avatar: "0"),
         FriendViewModel(name: "Дима Зотов", avatar: "1"),
         FriendViewModel(name: "Ира Павлова", avatar: "2"),
@@ -23,10 +23,22 @@ struct FriendsTable: View {
         FriendViewModel(name: "Кирилл Александров", avatar: "10")
     ]
     
+//    private lazy var friends = FriendsListWithSections(friendsData).friends
     
     var body: some View {
-        List(friends) { friend in
-            NamesPrototype(model: friend)
+        
+        let friends = FriendsListWithSections(friendsData).friends
+        
+        List {
+            ForEach(friends) { section in
+                Section(header: Text(section.title)) {
+                    ForEach(section.items) { friend in
+                        NavigationLink(destination: FriendGallery(model: friend)) {
+                            NamesPrototype(model: friend)
+                        }
+                    }
+                }
+            }
         }
     }
 }
