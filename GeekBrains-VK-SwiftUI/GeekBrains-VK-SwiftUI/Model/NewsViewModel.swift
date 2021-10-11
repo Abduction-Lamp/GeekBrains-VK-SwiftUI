@@ -8,7 +8,9 @@
 import Foundation
 
 
-final class NewsViewModel: SameDataSetProtocol {
+final class NewsViewModel: SameDataSetProtocol, Identifiable {
+
+    var id = UUID()
     
     var name:       String
     var avatar:     String
@@ -18,13 +20,11 @@ final class NewsViewModel: SameDataSetProtocol {
     var repost:     Int
     var views:      Int
     
-    init(name: String, avatar: String) {
+    internal init(name: String, avatar: String, text: String) {
         self.name = name
         self.avatar = avatar
-        self.text = """
-            Все счастливые семьи похожи друг на друга, каждая несчастливая семья несчастлива по-своему.
-            Все смешалось в доме Облонских. Жена узнала, что муж был в связи с бывшею в их доме француженкою-гувернанткой, и объявила мужу, что не может жить с ним в одном доме. Положение это продолжалось уже третий день и мучительно чувствовалось и самими супругами, и всеми членами семьи, и домочадцами. Все члены семьи и домочадцы чувствовали, что нет смысла в их сожительстве и что на каждом постоялом дворе случайно сошедшиеся люди более связаны между собой, чем они, члены семьи и домочадцы Облонских. Жена не выходила из своих комнат, мужа третий день не было дома. Дети бегали по всему дому, как потерянные; англичанка поссорилась с экономкой и написала записку приятельнице, прося приискать ей новое место; повар ушел еще вчера со двора, во время обеда; черная кухарка и кучер просили расчета.
-            """
+        self.text = text
+        
         self.likes = Int.random(in: 0...100)
         self.comments = Int.random(in: 0...10)
         self.repost = Int.random(in: 0...5)

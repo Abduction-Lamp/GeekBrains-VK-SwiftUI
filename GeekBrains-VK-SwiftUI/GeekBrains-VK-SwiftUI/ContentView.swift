@@ -11,25 +11,18 @@ import Combine
 
 struct ContentView: View {
     
-    let friend = FriendViewModel(name: "Иван Иванов", avatar: "superman")
-    let group = GroupViewModel(name: "GeekBrains: iOS - разработка", avatar: "artificial-intelligence")
-    let new = NewsViewModel(name: "Новости: Толстой", avatar: "launch")
-    
+    @State private var shouldShowMainView: Bool = false
     
     var body: some View {
-        
-//        SignIn()
-        ScrollView(.vertical, showsIndicators: false) {
-            NamesPrototype(model: friend)
-            NamesPrototype(model: group)
-            NewsPrototype(model: new)
+        NavigationView {
+            HStack {
+                SignIn(isUserAuthorization: $shouldShowMainView)
+                
+                NavigationLink(destination: MainView(), isActive: $shouldShowMainView) {
+                    EmptyView()
+                }
+            }
         }
+        .navigationViewStyle(StackNavigationViewStyle())
     }
 }
-
-
-//struct ContentView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        ContentView()
-//    }
-//}

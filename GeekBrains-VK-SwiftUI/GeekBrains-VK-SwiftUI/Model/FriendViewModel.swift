@@ -5,15 +5,17 @@
 //  Created by Владимир on 26.09.2021.
 //
 
-import Foundation
+import SwiftUI
 
 
-final class FriendViewModel: SameDataSetProtocol {
+final class FriendViewModel: SameDataSetProtocol, Identifiable {
+    
+    var id = UUID()
     
     var name:   String
     var avatar: String
     
-    init(name: String, avatar: String) {
+    internal init(name: String, avatar: String) {
         self.name = name
         self.avatar = avatar
     }

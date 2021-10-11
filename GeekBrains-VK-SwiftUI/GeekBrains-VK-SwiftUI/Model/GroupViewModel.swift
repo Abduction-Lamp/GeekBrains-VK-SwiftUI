@@ -8,12 +8,14 @@
 import Foundation
 
 
-final class GroupViewModel: SameDataSetProtocol {
+final class GroupViewModel: SameDataSetProtocol, Identifiable {
+    
+    var id = UUID()
     
     var name:   String
     var avatar: String
     
-    init(name: String, avatar: String) {
+    internal init(name: String, avatar: String) {
         self.name = name
         self.avatar = avatar
     }

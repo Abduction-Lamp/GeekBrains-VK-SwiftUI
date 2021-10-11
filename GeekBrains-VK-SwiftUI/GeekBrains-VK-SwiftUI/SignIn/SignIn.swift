@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Combine
 
 struct SignIn: View {
     
@@ -13,11 +14,16 @@ struct SignIn: View {
     
     @State private var login = ""
     @State private var password = ""
-    @State private var keyboardHeight: CGFloat = 0
+    @State private var isWrongPasswordMpdalShown = false
+    
+    @Binding var isUserAuthorization: Bool
     
     
-    private let keyboardAppearedPablisher = NotificationCenter.default.publisher(for: UIResponder.keyboardDidShowNotification)
-    private let keyboardDisappearedPablisher = NotificationCenter.default.publisher(for: UIResponder.keyboardDidHideNotification)
+    private let keyboardStatePublisher = Publishers.Merge(
+        NotificationCenter.default.publisher(for: UIResponder.keyboardDidShowNotification).map { _ in true },
+        NotificationCenter.default.publisher(for: UIResponder.keyboardDidHideNotification).map { _ in false }
+    )
+    
     
     var body: some View {
         GeometryReader { geometry in
@@ -41,7 +47,11 @@ struct SignIn: View {
                                 .frame(maxWidth: 200)
                                 .textFieldStyle(RoundedBorderTextFieldStyle())
                         }
-                        Button(action: { print("Hello") }) {
+                        Button(action: {
+                            let result = verifyLoginData()
+                            isWrongPasswordMpdalShown = !result
+                            isUserAuthorization = result
+                        }) {
                             Text("Войти")
                                 .bold()
                                 .frame(width: 80, height: 37, alignment: .center)
@@ -58,24 +68,29 @@ struct SignIn: View {
                 }
                 .frame(minWidth: geometry.size.width, idealWidth: geometry.size.width, maxWidth: geometry.size.width)
             }
-            .onReceive(keyboardAppearedPablisher) { notificationEvent in
-                guard let keyboardBouns = notificationEvent.userInfo?["UIKeyboardFrameEndUserInfoKey"] as? CGRect else {
-                    return
-                }
-                keyboardHeight = keyboardBouns.size.height
-            }
-            .onReceive(keyboardAppearedPablisher) { _ in
-                keyboardHeight = 0
-            }
             .onTapGesture {
                 UIApplication.shared.endEditing()
             }
+            .onReceive(keyboardStatePublisher) { _ in }
+            .alert(isPresented: $isWrongPasswordMpdalShown) {
+                Alert(title: Text("Ощибка"),
+                      message: Text("Неверный логин или пароль"),
+                      dismissButton: .default(Text("Ок"), action: {
+                        password = ""
+                      }))
+            }
         }
+    }
+    
+    
+    private func verifyLoginData() -> Bool {
+        return (login == "1" && password == "1")
     }
 }
 
 
 extension UIApplication {
+    
     func endEditing() {
         sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
     }
