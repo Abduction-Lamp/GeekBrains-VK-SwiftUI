@@ -16,8 +16,9 @@ struct ContentView: View {
     var body: some View {
         NavigationView {
             HStack {
-                SignIn(isUserAuthorization: $shouldShowMainView)
+//                SignIn(isUserAuthorization: $shouldShowMainView)
                 
+                SignInWebView(isUserAuthorization: $shouldShowMainView)
                 NavigationLink(destination: MainView(), isActive: $shouldShowMainView) {
                     EmptyView()
                 }
