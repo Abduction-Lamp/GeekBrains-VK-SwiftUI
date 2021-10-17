@@ -14,8 +14,6 @@ final class VKAuth {
     
     public func buildAuthRequest() -> URLRequest? {
         
-        let appKey = "7798895"
-        
         let maskFriendsScope = (1 << 1)
         let maskPhotosScope  = (1 << 2)
         let maskWallScope    = (1 << 13)
@@ -27,7 +25,7 @@ final class VKAuth {
         components.host = "oauth.vk.com"
         components.path = "/authorize"
         components.queryItems = [
-            URLQueryItem(name: "client_id", value: appKey),
+            URLQueryItem(name: "client_id", value: Keychain.instance.app.key),
             URLQueryItem(name: "scope", value: scope),
             URLQueryItem(name: "display", value: "mobile"),
             URLQueryItem(name: "redirect_uri", value: "https://oauth.vk.com/blank.html"),

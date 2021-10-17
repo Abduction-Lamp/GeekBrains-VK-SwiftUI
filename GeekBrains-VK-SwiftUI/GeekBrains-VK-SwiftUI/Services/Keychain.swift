@@ -12,9 +12,14 @@ final class Keychain {
     static var instance = Keychain()
     private init() {}
     
+    let app = App()
     let auth = AuthKeychain()
     
     
+    
+    struct App {
+        let key = "7798895"
+    }
     
     struct AuthKeychain {
         let token = "VK.Auth.Token"
