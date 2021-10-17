@@ -6,10 +6,11 @@
 //
 
 import SwiftUI
+import Kingfisher
 
 struct NamesPrototype: View {
     
-    private var avatar: String
+    private var avatar: URL?
     private var name: String
 
     private let style = ConstUIStyle.instances
@@ -23,8 +24,9 @@ struct NamesPrototype: View {
     var body: some View {
         
         HStack(alignment: .center, spacing: 10, content: {
-            Image(avatar)
+            KFImage(avatar)
                 .resizable()
+                .cancelOnDisappear(true)
                 .frame(width: 50.0, height: 50.0)
                 .modifier(CircleAndShadow(radius: 25.0, shadowColor: .gray))
                 .padding(.leading, 5.0)

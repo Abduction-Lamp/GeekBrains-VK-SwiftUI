@@ -13,16 +13,16 @@ final class FriendViewModel: SameDataSetProtocol, Identifiable {
     var id = UUID()
     
     var name:   String
-    var avatar: String
+    var avatar: URL?
     
-    internal init(name: String, avatar: String) {
+    internal init(name: String, url: URL) {
         self.name = name
-        self.avatar = avatar
+        self.avatar = url
     }
     
     internal init(model: User) {
         self.name = model.firstName + " " + model.lastName
-        self.avatar = "0"
+        self.avatar = URL(string: model.avatar)
     }
 }
 
@@ -77,7 +77,7 @@ final class FriendsListWithSections: ObservableObject {
     
     public func fetch() {
         let network = NetworkService.instance
-        network.getFriends { [weak self] response in
+        network.friends.getFriends { [weak self] response in
             guard let self = self else { return }
             if let users = response {
                 self.makeListWithSection(users)

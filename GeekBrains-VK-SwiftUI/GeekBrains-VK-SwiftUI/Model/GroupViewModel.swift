@@ -13,10 +13,10 @@ final class GroupViewModel: SameDataSetProtocol, Identifiable {
     var id = UUID()
     
     var name:   String
-    var avatar: String
+    var avatar: URL?
     
-    internal init(name: String, avatar: String) {
+    internal init(name: String, urlIcon: URL) {
         self.name = name
-        self.avatar = avatar
+        self.avatar = urlIcon
     }
 }

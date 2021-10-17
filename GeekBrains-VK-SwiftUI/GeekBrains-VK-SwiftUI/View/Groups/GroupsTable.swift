@@ -9,13 +9,7 @@ import SwiftUI
 
 struct GroupsTable: View {
     
-    private var groups: [GroupViewModel] = [
-        GroupViewModel(name: "GeekBrains: iOS - разработка", avatar: "g0"),
-        GroupViewModel(name: "Музыка", avatar: "g1"),
-        GroupViewModel(name: "Бавария", avatar: "g2"),
-        GroupViewModel(name: "Итальянский язык", avatar: "g3"),
-        GroupViewModel(name: "Строим дом", avatar: "g4")
-    ]
+    private var groups: [GroupViewModel] = []
     
     
     var body: some View {
