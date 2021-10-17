@@ -16,7 +16,7 @@ final class FriendsRequests {
         self.session = session
     }
     
-    public func getFriends(completed: @escaping ([User]?) -> Void) {
+    public func get(completed: @escaping ([User]?) -> Void) {
     
         var urlComponents = URLComponents()
         urlComponents.scheme = "https"
@@ -28,7 +28,6 @@ final class FriendsRequests {
             URLQueryItem(name: "access_token", value: Session.instance.token),
             URLQueryItem(name: "v", value: version)
         ]
-
         guard let url = urlComponents.url else {
             completed(nil)
             return
@@ -51,6 +50,8 @@ final class FriendsRequests {
                 return
             }
 
+            //  FIXME: - Нужно ли эту часть кода оборачивать в DispatchQueue.global().async ?
+            //
             do {
                 let frendsResponse = try JSONDecoder().decode(UserService.self, from: data)
                 completed(frendsResponse.response.items)
@@ -58,6 +59,7 @@ final class FriendsRequests {
                 print(error.localizedDescription)
                 completed(nil)
             }
-        }.resume()
+        }
+        .resume()
     }
 }

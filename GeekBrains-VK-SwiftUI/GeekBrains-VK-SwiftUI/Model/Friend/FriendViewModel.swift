@@ -77,7 +77,7 @@ final class FriendsListWithSections: ObservableObject {
     
     public func fetch() {
         let network = NetworkService.instance
-        network.friends.getFriends { [weak self] response in
+        network.friends.get { [weak self] response in
             guard let self = self else { return }
             if let users = response {
                 self.makeListWithSection(users)

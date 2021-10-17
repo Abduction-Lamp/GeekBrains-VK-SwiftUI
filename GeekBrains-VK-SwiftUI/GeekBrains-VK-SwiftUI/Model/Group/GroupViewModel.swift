@@ -31,7 +31,7 @@ final class GroupsView: ObservableObject {
     
     public func fetch() {
         let network = NetworkService.instance
-        network.groups.getGroups { [weak self] response in
+        network.groups.get { [weak self] response in
             guard let self = self else { return }
             if let data = response {
                 self.groups = data.map { GroupViewModel(model: $0) }
