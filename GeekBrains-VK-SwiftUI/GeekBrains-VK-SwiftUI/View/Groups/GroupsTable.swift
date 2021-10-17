@@ -9,12 +9,15 @@ import SwiftUI
 
 struct GroupsTable: View {
     
-    private var groups: [GroupViewModel] = []
+    @ObservedObject var list = GroupsView()
     
     
     var body: some View {
-        List(groups) { group in
+        List(list.groups) { group in
             NamesPrototype(model: group)
+        }
+        .onAppear() {
+            list.fetch()
         }
     }
 }

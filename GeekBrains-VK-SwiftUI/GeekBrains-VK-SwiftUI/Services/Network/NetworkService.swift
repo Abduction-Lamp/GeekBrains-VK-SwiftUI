@@ -20,10 +20,16 @@ final class NetworkService {
     
     private init() {
         friends = FriendsRequests(session: session)
+        groups = GroupsRequests(session: session)
     }
     
     
     //  MARK:   - FRIENDS
     //
     let friends: FriendsRequests
+    
+    
+    //  MARK:   - GROUPS
+    //
+    let groups: GroupsRequests
 }
