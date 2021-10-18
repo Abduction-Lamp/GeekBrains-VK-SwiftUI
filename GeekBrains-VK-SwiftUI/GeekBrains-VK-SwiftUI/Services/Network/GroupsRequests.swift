@@ -7,7 +7,6 @@
 
 import Foundation
 
-
 final class GroupsRequests {
     
     private var session: URLSession

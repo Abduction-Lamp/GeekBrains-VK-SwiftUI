@@ -6,16 +6,17 @@
 //
 
 import SwiftUI
+import Kingfisher
+
 
 struct NewsPrototype: View {
     
     private let style = ConstUIStyle.instances
-    private let model: NewsViewModel
+    private let model: NewsfeedViewModel
 
-    init(model: NewsViewModel) {
+    init(model: NewsfeedViewModel) {
         self.model = model
     }
-    
     
     
     var body: some View {
@@ -23,16 +24,17 @@ struct NewsPrototype: View {
         VStack(alignment: HorizontalAlignment.center, spacing: 10.0) {
             NamesPrototype(model: model)
             
-            Text(model.text)
+            Text(model.text ?? " ")
                 .font(.subheadline)
                 .multilineTextAlignment(.leading)
                 .fixedSize(horizontal: false, vertical: true)
                 .padding(.leading, 5.0)
             
-            SocialActivityPanel(likes: model.likes,
-                                comments: model.comments,
-                                reposts: model.repost,
-                                views: model.views)
+            KFImage(model.photo.url)
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+            
+            SocialActivityPanel(likes: model.likes, comments: model.comments, reposts: model.reposts, views: model.views)
                 .padding(.bottom, 5.0)
         }
     }

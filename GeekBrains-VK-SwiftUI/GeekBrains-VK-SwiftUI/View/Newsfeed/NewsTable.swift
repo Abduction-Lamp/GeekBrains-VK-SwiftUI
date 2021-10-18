@@ -9,15 +9,14 @@ import SwiftUI
 
 struct NewsTable: View {
     
+    @ObservedObject var list = NewsView()
+    
     var body: some View {
-        List(newsfeed) { news in
+        List(list.newsfeed) { news in
             NewsPrototype(model: news)
         }
+        .onAppear() {
+            list.fetch()
+        }
     }
-    
-    
-    
-    //  MARK:
-    //
-    private var newsfeed: [NewsViewModel] = []
 }
