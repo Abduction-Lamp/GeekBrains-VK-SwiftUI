@@ -1,37 +1,30 @@
 //
-//  NewsfeedRequests.swift
+//  PhotosRequests.swift
 //  GeekBrains-VK-SwiftUI
 //
-//  Created by Владимир on 17.10.2021.
+//  Created by Владимир on 18.10.2021.
 //
 
 import Foundation
 
-final class NewsfeedRequests {
+final class PhotosRequests {
     
     private var session: URLSession
     private let version = "5.130"
-    
     
     init(session: URLSession) {
         self.session = session
     }
     
-    
-    public func get(filters: String,
-                    count: Int = 20,
-                    startTime: TimeInterval? = nil,
-                    nextFrom: String = "",
-                    completed: @escaping (NewsfeedService?) -> Void) -> Void {
-    
+    public func get(ownerId: Int, completed: @escaping ([Photo]?) -> Void) {
         var urlComponents = URLComponents()
         urlComponents.scheme = "https"
         urlComponents.host = "api.vk.com"
-        urlComponents.path = "/method/newsfeed.get"
+        urlComponents.path = "/method/photos.getAll"
         urlComponents.queryItems = [
-            URLQueryItem(name: "filters", value: filters),
-            URLQueryItem(name: "count", value: "\(count)"),
-            URLQueryItem(name: "start_from", value: nextFrom),
+            URLQueryItem(name: "owner_id", value: "\(ownerId)"),
+            URLQueryItem(name: "extended", value: "1"),
+            URLQueryItem(name: "photo_sizes", value: "1"),
             URLQueryItem(name: "access_token", value: Session.instance.token),
             URLQueryItem(name: "v", value: version)
         ]
@@ -60,8 +53,9 @@ final class NewsfeedRequests {
             //  FIXME: - Нужно ли эту часть кода оборачивать в DispatchQueue.global().async ?
             //
             do {
-                let newsfeedLisn = try JSONDecoder().decode(NewsfeedService.self, from: data)
-                completed(newsfeedLisn)
+                let photosResponse = try JSONDecoder().decode(PhotoService.self, from: data)
+                completed(photosResponse.response.items)
+                print("URLSession: Photos list is loaded")
             } catch {
                 print(error.localizedDescription)
                 completed(nil)

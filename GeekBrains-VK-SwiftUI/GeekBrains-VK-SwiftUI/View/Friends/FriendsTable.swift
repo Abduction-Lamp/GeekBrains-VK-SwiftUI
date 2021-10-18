@@ -17,7 +17,7 @@ struct FriendsTable: View {
             ForEach(list.friends) { section in
                 Section(header: Text(section.title)) {
                     ForEach(section.items) { friend in
-                        NavigationLink(destination: FriendGallery(model: friend)) {
+                        NavigationLink(destination: FriendPhotosGallery(id: friend.id, name: friend.name)) {
                             NamesPrototype(model: friend)
                         }
                     }

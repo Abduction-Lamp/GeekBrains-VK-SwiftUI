@@ -58,6 +58,7 @@ final class GroupsRequests {
             do {
                 let groupsResponse = try JSONDecoder().decode(GroupService.self, from: data)
                 completed(groupsResponse.response.items)
+                print("URLSession: User Groups list is loaded")
             } catch {
                 print(error.localizedDescription)
                 completed(nil)

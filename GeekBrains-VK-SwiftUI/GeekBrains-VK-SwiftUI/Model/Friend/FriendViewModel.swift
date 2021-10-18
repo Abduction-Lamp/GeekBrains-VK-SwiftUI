@@ -10,23 +10,17 @@ import SwiftUI
 
 final class FriendViewModel: SameDataSetProtocol, Identifiable {
     
-    var id = UUID()
+    var id: Int
     
     var name:   String
     var avatar: URL?
-    
-    internal init(name: String, url: URL) {
-        self.name = name
-        self.avatar = url
-    }
-    
+        
     internal init(model: User) {
+        self.id = model.id
         self.name = model.firstName + " " + model.lastName
         self.avatar = URL(string: model.avatar)
     }
 }
-
-
 
 
 final class FriendsListWithSections: ObservableObject {

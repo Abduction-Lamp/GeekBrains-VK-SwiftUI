@@ -22,10 +22,12 @@ final class NetworkService {
         friends = FriendsRequests(session: session)
         groups = GroupsRequests(session: session)
         newsfeed = NewsfeedRequests(session: session)
+        photos = PhotosRequests(session: session)
     }
     
     
     let friends: FriendsRequests
     let groups: GroupsRequests
     let newsfeed: NewsfeedRequests
+    let photos: PhotosRequests
 }

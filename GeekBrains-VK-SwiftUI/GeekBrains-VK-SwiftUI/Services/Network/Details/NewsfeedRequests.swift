@@ -1,5 +1,5 @@
 //
-//  FriendsRequests.swift
+//  NewsfeedRequests.swift
 //  GeekBrains-VK-SwiftUI
 //
 //  Created by Владимир on 17.10.2021.
@@ -7,24 +7,31 @@
 
 import Foundation
 
-final class FriendsRequests {
+final class NewsfeedRequests {
     
     private var session: URLSession
     private let version = "5.130"
+    
     
     init(session: URLSession) {
         self.session = session
     }
     
-    public func get(completed: @escaping ([User]?) -> Void) {
+    
+    public func get(filters: String,
+                    count: Int = 20,
+                    startTime: TimeInterval? = nil,
+                    nextFrom: String = "",
+                    completed: @escaping (NewsfeedService?) -> Void) -> Void {
     
         var urlComponents = URLComponents()
         urlComponents.scheme = "https"
         urlComponents.host = "api.vk.com"
-        urlComponents.path = "/method/friends.get"
+        urlComponents.path = "/method/newsfeed.get"
         urlComponents.queryItems = [
-            URLQueryItem(name: "fields", value: "bdate, nickname, domain, photo_50, online, sex, last_seen, city, country"),
-            URLQueryItem(name: "order", value: "name"),
+            URLQueryItem(name: "filters", value: filters),
+            URLQueryItem(name: "count", value: "\(count)"),
+            URLQueryItem(name: "start_from", value: nextFrom),
             URLQueryItem(name: "access_token", value: Session.instance.token),
             URLQueryItem(name: "v", value: version)
         ]
@@ -53,8 +60,9 @@ final class FriendsRequests {
             //  FIXME: - Нужно ли эту часть кода оборачивать в DispatchQueue.global().async ?
             //
             do {
-                let frendsResponse = try JSONDecoder().decode(UserService.self, from: data)
-                completed(frendsResponse.response.items)
+                let newsfeedLisn = try JSONDecoder().decode(NewsfeedService.self, from: data)
+                completed(newsfeedLisn)
+                print("URLSession: Newsfeed is loaded")
             } catch {
                 print(error.localizedDescription)
                 completed(nil)

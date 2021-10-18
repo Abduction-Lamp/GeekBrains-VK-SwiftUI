@@ -20,9 +20,9 @@ final class SocialActivity {
     //
     final class Likes: Codable {
         var count:      Int
-        var userLikes:  Int
-        var canLike:    Int
-        var canPublish: Int
+        var userLikes:  Int     // 0 = нет, 1(или больше) = да
+        var canLike:    Int?
+        var canPublish: Int?
         
         enum CodingKeys: String, CodingKey {
             case count
