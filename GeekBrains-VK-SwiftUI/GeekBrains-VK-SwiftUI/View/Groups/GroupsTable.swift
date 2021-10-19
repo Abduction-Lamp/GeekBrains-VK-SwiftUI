@@ -15,6 +15,7 @@ struct GroupsTable: View {
         List(list.groups) { group in
             NamesPrototype(model: group)
         }
+        .navigationBarTitle("Группы", displayMode: .inline)
         .onAppear(perform: list.fetch)
     }
 }

@@ -15,6 +15,7 @@ struct NewsTable: View {
         List(list.newsfeed) { news in
             NewsPrototype(model: news)
         }
+        .navigationBarTitle("Новости", displayMode: .inline)
         .onAppear() {
             list.fetch()
         }

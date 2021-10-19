@@ -24,6 +24,7 @@ struct FriendsTable: View {
                 }
             }
         }
+        .navigationBarTitle("Друзья", displayMode: .inline)
         .onAppear(perform: list.fetch)
     }
 }
