@@ -24,8 +24,6 @@ struct FriendsTable: View {
                 }
             }
         }
-        .onAppear {
-            list.fetch()
-        }
+        .onAppear(perform: list.fetch)
     }
 }

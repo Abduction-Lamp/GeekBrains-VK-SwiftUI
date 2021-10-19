@@ -11,13 +11,10 @@ struct GroupsTable: View {
     
     @ObservedObject var list = GroupsView()
     
-    
     var body: some View {
         List(list.groups) { group in
             NamesPrototype(model: group)
         }
-        .onAppear() {
-            list.fetch()
-        }
+        .onAppear(perform: list.fetch)
     }
 }

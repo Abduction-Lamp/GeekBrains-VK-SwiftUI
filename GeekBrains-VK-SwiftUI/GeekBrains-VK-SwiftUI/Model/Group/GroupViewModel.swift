@@ -27,16 +27,15 @@ final class GroupViewModel: SameDataSetProtocol, Identifiable {
 
 final class GroupsView: ObservableObject {
 
-    public var groups: [GroupViewModel] = []
+    @Published var groups: [GroupViewModel] = []
     
     public func fetch() {
         let network = NetworkService.instance
         network.groups.get { [weak self] response in
             guard let self = self else { return }
             if let data = response {
-                self.groups = data.map { GroupViewModel(model: $0) }
                 DispatchQueue.main.async {
-                    self.objectWillChange.send()
+                    self.groups = data.map { GroupViewModel(model: $0) }
                 }
             }
         }

@@ -39,7 +39,7 @@ final class FriendsListWithSections: ObservableObject {
     }
     
     
-    public var friends: [ListWithSections] = []
+    @Published var friends: [ListWithSections] = []
     
     private func makeListWithSection(_ array: [User]) {
         friends.removeAll()
@@ -61,10 +61,7 @@ final class FriendsListWithSections: ObservableObject {
                     }
                 }
             }
-            friends.append(ListWithSections(id: UUID(), title: String(title), items: items))
-        }
-        DispatchQueue.main.async {
-            self.objectWillChange.send()
+            self.friends.append(ListWithSections(id: UUID(), title: String(title), items: items))
         }
     }
     
@@ -74,7 +71,15 @@ final class FriendsListWithSections: ObservableObject {
         network.friends.get { [weak self] response in
             guard let self = self else { return }
             if let users = response {
-                self.makeListWithSection(users)
+                
+                //  FIXME:  Publishing changes from background threads is not allowed;
+                //
+                //          Publishing changes from background threads is not allowed; make sure to publish values from
+                //          the main thread (via operators like receive(on:)) on model updates.
+                //
+                DispatchQueue.main.async {
+                    self.makeListWithSection(users)
+                }
             }
         }
     }
