@@ -17,7 +17,6 @@ struct MainView: View {
     
     var body: some View {
         TabView(selection: $selectedTab) {
-            
             NavigationView { FriendsTable() }
             .tabItem {
                 Image(systemName: "person.3.fill")
