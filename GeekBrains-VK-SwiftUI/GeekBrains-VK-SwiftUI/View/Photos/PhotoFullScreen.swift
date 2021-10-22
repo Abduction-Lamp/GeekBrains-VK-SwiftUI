@@ -17,17 +17,13 @@ struct PhotoFullScreen: View {
     
     
     init(url: URL?) {
-        if let url = url {
-            self.url = url
-        } else {
+        self.url = url
+        if self.url == nil {
             self.isNoPhoto = true
+        } else {
+            self.isNoPhoto = false
         }
     }
-    
-    init() {
-        self.isNoPhoto = true
-    }
-    
     
     var body: some View {
         ZStack {

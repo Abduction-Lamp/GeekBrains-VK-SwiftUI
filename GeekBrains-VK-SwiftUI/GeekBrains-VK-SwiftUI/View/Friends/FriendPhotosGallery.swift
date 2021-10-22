@@ -15,7 +15,7 @@ struct FriendPhotosGallery: View {
     @ObservedObject var list: PhotosView = PhotosView()
     
     @State private var isShowFullScreen: Bool = false
-    @State private var currentSelectionUrl: URL? = nil
+    @State private var model: PhotoViewModel?
     
     var ownerName: String
     var ownerId: Int
@@ -32,7 +32,7 @@ struct FriendPhotosGallery: View {
             let url = item.getPhotoMaxSize().url
             Button(
                 action: {
-                    currentSelectionUrl = url
+                    model = item
                     isShowFullScreen = true
                 },
                 label: {
@@ -50,8 +50,8 @@ struct FriendPhotosGallery: View {
         .onAppear() {
             list.fetch(owner: ownerId)
         }
-        .fullScreenCover(isPresented: $isShowFullScreen) {
-            PhotoFullScreen(url: currentSelectionUrl)
+        .fullScreenCover(item: $model) { item in
+            PhotoFullScreen(url: item.getPhotoMaxSize().url)
         }
     }
 }

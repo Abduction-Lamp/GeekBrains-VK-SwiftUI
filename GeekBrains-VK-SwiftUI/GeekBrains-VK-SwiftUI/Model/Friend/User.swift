@@ -29,16 +29,16 @@ final class UserService: Decodable {
 
 final class User: Codable {
     
-    var id: Int = -1
-    var firstName: String = ""
-    var lastName: String = ""
-    var avatar: String = ""
-    var birthday: String? = nil
-    var nickname: String? = nil
-    var domain: String? = nil
+    var id: Int
+    var firstName: String
+    var lastName: String
+    var avatar: String
+    var birthday: String?
+    var nickname: String?
+    var domain: String?
     var city: City?
     var country: Country?
-    var onlineStatus: Int = -1
+    var onlineStatus: Int
     var lastSeen: LastSeen?
     
     enum CodingKeys: String, CodingKey {
@@ -57,8 +57,8 @@ final class User: Codable {
     
     
     class LastSeen: Codable {
-        var platform: Int = 0
-        var time: Int64 = 0
+        var platform: Int
+        var time: TimeInterval
         
         enum CodingKeys: String, CodingKey {
             case platform
@@ -67,8 +67,8 @@ final class User: Codable {
     }
         
     class City: Codable {
-        var id: Int = -1
-        var title: String = ""
+        var id: Int
+        var title: String
 
         enum CodingKeys: String, CodingKey {
             case id
@@ -77,8 +77,8 @@ final class User: Codable {
     }
 
     class Country: Codable {
-        var id: Int = -1
-        var title: String = ""
+        var id: Int
+        var title: String
         
         enum CodingKeys: String, CodingKey {
             case id

@@ -32,7 +32,7 @@ struct MainView: View {
             NavigationView {  NewsTable() }
             .tabItem {
                 Image(systemName: "newspaper")
-                Text(tabs[0])
+                Text(tabs[2])
             }
         }
     }
