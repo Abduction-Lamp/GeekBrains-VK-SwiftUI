@@ -28,7 +28,7 @@ final class GroupViewModel: SameDataSetProtocol, Identifiable {
 final class GroupsView: ObservableObject {
 
     @Published var groups: [GroupViewModel] = []
-    
+
     public func fetch() {
         let network = NetworkService.instance
         network.groups.get { [weak self] response in

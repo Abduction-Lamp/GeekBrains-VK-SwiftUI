@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		4E0E252C26F73E2300C66F19 /* ConstUIStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E0E252B26F73E2300C66F19 /* ConstUIStyle.swift */; };
 		4E209E0E271C9EFD00B29C27 /* FriendsRequests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E209E0D271C9EFD00B29C27 /* FriendsRequests.swift */; };
-		4E209E11271CA1D400B29C27 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 4E209E10271CA1D400B29C27 /* Kingfisher */; };
 		4E209E13271CA66300B29C27 /* GroupsRequests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E209E12271CA66300B29C27 /* GroupsRequests.swift */; };
 		4E209E17271CA7CC00B29C27 /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E209E16271CA7CC00B29C27 /* Group.swift */; };
 		4E209E19271CC23600B29C27 /* NewsfeedRequests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E209E18271CC23600B29C27 /* NewsfeedRequests.swift */; };
@@ -28,6 +27,7 @@
 		4E517FE32700B3E10021967F /* GroupViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E517FE22700B3E10021967F /* GroupViewModel.swift */; };
 		4E517FE52700B4490021967F /* SameDataSetProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E517FE42700B4490021967F /* SameDataSetProtocol.swift */; };
 		4E517FE72700B4B10021967F /* NewsfeedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E517FE62700B4B10021967F /* NewsfeedViewModel.swift */; };
+		4E5F42D5272F146C00DF2A98 /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 4E5F42D4272F146C00DF2A98 /* SDWebImageSwiftUI */; };
 		4E67161D27132BCB003BD400 /* FriendsTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E67161C27132BCB003BD400 /* FriendsTable.swift */; };
 		4E67161F271330A1003BD400 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E67161E271330A1003BD400 /* MainView.swift */; };
 		4E67162227134203003BD400 /* GroupsTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E67162127134203003BD400 /* GroupsTable.swift */; };
@@ -39,6 +39,7 @@
 		4E91230E271C56C2001E4FBE /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E91230D271C56C2001E4FBE /* NetworkService.swift */; };
 		4E924502271F1FDD001307EF /* PhotoFullScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E924501271F1FDD001307EF /* PhotoFullScreen.swift */; };
 		4ED1AF1927147AF600C72D0E /* FriendPhotosGallery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED1AF1827147AF600C72D0E /* FriendPhotosGallery.swift */; };
+		4ED5B949272DEDBA00F88CE6 /* LoadingImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED5B948272DEDBA00F88CE6 /* LoadingImageView.swift */; };
 		4EF357C2271D886E005C0912 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF357C1271D886E005C0912 /* Photo.swift */; };
 		4EF4B6E026ECF6E100CB5D09 /* GeekBrains_VK_SwiftUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF4B6DF26ECF6E100CB5D09 /* GeekBrains_VK_SwiftUIApp.swift */; };
 		4EF4B6E226ECF6E100CB5D09 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF4B6E126ECF6E100CB5D09 /* ContentView.swift */; };
@@ -77,6 +78,7 @@
 		4E91230D271C56C2001E4FBE /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		4E924501271F1FDD001307EF /* PhotoFullScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoFullScreen.swift; sourceTree = "<group>"; };
 		4ED1AF1827147AF600C72D0E /* FriendPhotosGallery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendPhotosGallery.swift; sourceTree = "<group>"; };
+		4ED5B948272DEDBA00F88CE6 /* LoadingImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingImageView.swift; sourceTree = "<group>"; };
 		4EF357C1271D886E005C0912 /* Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
 		4EF4B6DC26ECF6E100CB5D09 /* GeekBrains-VK-SwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "GeekBrains-VK-SwiftUI.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4EF4B6DF26ECF6E100CB5D09 /* GeekBrains_VK_SwiftUIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeekBrains_VK_SwiftUIApp.swift; sourceTree = "<group>"; };
@@ -91,7 +93,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4E209E11271CA1D400B29C27 /* Kingfisher in Frameworks */,
+				4E5F42D5272F146C00DF2A98 /* SDWebImageSwiftUI in Frameworks */,
 				4E67588E271DD1C50004AA42 /* ASCollectionView in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -182,6 +184,7 @@
 			children = (
 				4E517FD327008B9A0021967F /* NamesPrototype.swift */,
 				4E517FDD2700AB3D0021967F /* SocialActivityPanel.swift */,
+				4ED5B948272DEDBA00F88CE6 /* LoadingImageView.swift */,
 			);
 			path = Prototypes;
 			sourceTree = "<group>";
@@ -327,8 +330,8 @@
 			);
 			name = "GeekBrains-VK-SwiftUI";
 			packageProductDependencies = (
-				4E209E10271CA1D400B29C27 /* Kingfisher */,
 				4E67588D271DD1C50004AA42 /* ASCollectionView */,
+				4E5F42D4272F146C00DF2A98 /* SDWebImageSwiftUI */,
 			);
 			productName = "GeekBrains-VK-SwiftUI";
 			productReference = 4EF4B6DC26ECF6E100CB5D09 /* GeekBrains-VK-SwiftUI.app */;
@@ -358,8 +361,8 @@
 			);
 			mainGroup = 4EF4B6D326ECF6E100CB5D09;
 			packageReferences = (
-				4E209E0F271CA1D400B29C27 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 				4E67588C271DD1C50004AA42 /* XCRemoteSwiftPackageReference "ASCollectionView" */,
+				4E5F42D3272F146C00DF2A98 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */,
 			);
 			productRefGroup = 4EF4B6DD26ECF6E100CB5D09 /* Products */;
 			projectDirPath = "";
@@ -418,6 +421,7 @@
 				4E326894271AE005007D962A /* SignInWebView.swift in Sources */,
 				4ED1AF1927147AF600C72D0E /* FriendPhotosGallery.swift in Sources */,
 				4E67161D27132BCB003BD400 /* FriendsTable.swift in Sources */,
+				4ED5B949272DEDBA00F88CE6 /* LoadingImageView.swift in Sources */,
 				4E67162527134622003BD400 /* NewsTable.swift in Sources */,
 				4E326899271AE4D5007D962A /* Keychain.swift in Sources */,
 			);
@@ -610,12 +614,12 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		4E209E0F271CA1D400B29C27 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+		4E5F42D3272F146C00DF2A98 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			repositoryURL = "https://github.com/SDWebImage/SDWebImageSwiftUI";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 7.1.1;
+				minimumVersion = 2.0.2;
 			};
 		};
 		4E67588C271DD1C50004AA42 /* XCRemoteSwiftPackageReference "ASCollectionView" */ = {
@@ -629,10 +633,10 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		4E209E10271CA1D400B29C27 /* Kingfisher */ = {
+		4E5F42D4272F146C00DF2A98 /* SDWebImageSwiftUI */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 4E209E0F271CA1D400B29C27 /* XCRemoteSwiftPackageReference "Kingfisher" */;
-			productName = Kingfisher;
+			package = 4E5F42D3272F146C00DF2A98 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */;
+			productName = SDWebImageSwiftUI;
 		};
 		4E67588D271DD1C50004AA42 /* ASCollectionView */ = {
 			isa = XCSwiftPackageProductDependency;

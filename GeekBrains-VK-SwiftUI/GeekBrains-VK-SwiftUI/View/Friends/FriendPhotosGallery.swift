@@ -7,7 +7,7 @@
 
 import SwiftUI
 import ASCollectionView
-import Kingfisher
+import SDWebImageSwiftUI
 
 
 struct FriendPhotosGallery: View {
@@ -36,9 +36,15 @@ struct FriendPhotosGallery: View {
                     isShowFullScreen = true
                 },
                 label: {
-                    KFImage(url)
+                    WebImage(url: url)
+                        .renderingMode(.original)
                         .resizable()
-                        .aspectRatio(contentMode: .fit)
+                        .placeholder {
+                            LoadingImageView()
+                                .frame(width: 150, height: 150, alignment: .center)
+                        }
+                        .transition(.fade(duration: 0.25))
+                        .scaledToFit()
                 })
                 .cornerRadius(10.0)
         }.layout {
