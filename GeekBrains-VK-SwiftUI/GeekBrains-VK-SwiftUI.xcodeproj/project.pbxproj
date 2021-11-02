@@ -14,6 +14,8 @@
 		4E209E19271CC23600B29C27 /* NewsfeedRequests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E209E18271CC23600B29C27 /* NewsfeedRequests.swift */; };
 		4E209E1B271CC52400B29C27 /* Newsfeed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E209E1A271CC52400B29C27 /* Newsfeed.swift */; };
 		4E209E1E271CCA9700B29C27 /* SocialActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E209E1D271CCA9700B29C27 /* SocialActivity.swift */; };
+		4E2AED9C273187190036ABC5 /* LikesRequests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2AED9B273187190036ABC5 /* LikesRequests.swift */; };
+		4E2AED9F27318FB00036ABC5 /* LikeButtonAndCountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2AED9E27318FB00036ABC5 /* LikeButtonAndCountView.swift */; };
 		4E326892271ADAC6007D962A /* VKAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E326891271ADAC6007D962A /* VKAuth.swift */; };
 		4E326894271AE005007D962A /* SignInWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E326893271AE005007D962A /* SignInWebView.swift */; };
 		4E326896271AE2BB007D962A /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E326895271AE2BB007D962A /* Session.swift */; };
@@ -55,6 +57,8 @@
 		4E209E18271CC23600B29C27 /* NewsfeedRequests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsfeedRequests.swift; sourceTree = "<group>"; };
 		4E209E1A271CC52400B29C27 /* Newsfeed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Newsfeed.swift; sourceTree = "<group>"; };
 		4E209E1D271CCA9700B29C27 /* SocialActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialActivity.swift; sourceTree = "<group>"; };
+		4E2AED9B273187190036ABC5 /* LikesRequests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikesRequests.swift; sourceTree = "<group>"; };
+		4E2AED9E27318FB00036ABC5 /* LikeButtonAndCountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeButtonAndCountView.swift; sourceTree = "<group>"; };
 		4E326891271ADAC6007D962A /* VKAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VKAuth.swift; sourceTree = "<group>"; };
 		4E326893271AE005007D962A /* SignInWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInWebView.swift; sourceTree = "<group>"; };
 		4E326895271AE2BB007D962A /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
@@ -150,6 +154,15 @@
 			path = "Social Activity";
 			sourceTree = "<group>";
 		};
+		4E2AED9D27318F770036ABC5 /* SocialActivity */ = {
+			isa = PBXGroup;
+			children = (
+				4E517FDD2700AB3D0021967F /* SocialActivityPanel.swift */,
+				4E2AED9E27318FB00036ABC5 /* LikeButtonAndCountView.swift */,
+			);
+			path = SocialActivity;
+			sourceTree = "<group>";
+		};
 		4E326890271ADA67007D962A /* Network */ = {
 			isa = PBXGroup;
 			children = (
@@ -182,8 +195,8 @@
 		4E517FD127008B0C0021967F /* Prototypes */ = {
 			isa = PBXGroup;
 			children = (
+				4E2AED9D27318F770036ABC5 /* SocialActivity */,
 				4E517FD327008B9A0021967F /* NamesPrototype.swift */,
-				4E517FDD2700AB3D0021967F /* SocialActivityPanel.swift */,
 				4ED5B948272DEDBA00F88CE6 /* LoadingImageView.swift */,
 			);
 			path = Prototypes;
@@ -259,6 +272,7 @@
 				4E209E12271CA66300B29C27 /* GroupsRequests.swift */,
 				4E209E18271CC23600B29C27 /* NewsfeedRequests.swift */,
 				4E675892271E00A00004AA42 /* PhotosRequests.swift */,
+				4E2AED9B273187190036ABC5 /* LikesRequests.swift */,
 			);
 			path = Details;
 			sourceTree = "<group>";
@@ -393,6 +407,7 @@
 				4E326896271AE2BB007D962A /* Session.swift in Sources */,
 				4E675895271E06110004AA42 /* PhotoViewModel.swift in Sources */,
 				4EF4B6E226ECF6E100CB5D09 /* ContentView.swift in Sources */,
+				4E2AED9F27318FB00036ABC5 /* LikeButtonAndCountView.swift in Sources */,
 				4E91230E271C56C2001E4FBE /* NetworkService.swift in Sources */,
 				4E67161F271330A1003BD400 /* MainView.swift in Sources */,
 				4E517FD427008B9A0021967F /* NamesPrototype.swift in Sources */,
@@ -410,6 +425,7 @@
 				4E517FDE2700AB3D0021967F /* SocialActivityPanel.swift in Sources */,
 				4E517FD0270088A20021967F /* SignIn.swift in Sources */,
 				4E209E1E271CCA9700B29C27 /* SocialActivity.swift in Sources */,
+				4E2AED9C273187190036ABC5 /* LikesRequests.swift in Sources */,
 				4EF357C2271D886E005C0912 /* Photo.swift in Sources */,
 				4E517FD627009AD40021967F /* CircleShadowViewModifier.swift in Sources */,
 				4E517FDB2700A7550021967F /* NewsPrototype.swift in Sources */,

@@ -33,13 +33,19 @@ struct NewsPrototype: View {
             WebImage(url: model.photo.url)
                 .resizable()
                 .placeholder {
-                    LoadingImageView()
-                        .frame(width: 150, height: 150, alignment: .center)
+                    ProgressView()
+                        .progressViewStyle(DefaultProgressViewStyle())
                 }
                 .transition(.fade(duration: 0.25))
                 .scaledToFit()
             
-            SocialActivityPanel(likes: model.likes, comments: model.comments, reposts: model.reposts, views: model.views)
+            SocialActivityPanel(likes: model.likes,
+                                comments: model.comments,
+                                reposts: model.reposts,
+                                views: model.views,
+                                ownerId: model.ownerId,
+                                itemId: model.id,
+                                type: model.type)
                 .padding(.bottom, 5.0)
         }
     }
