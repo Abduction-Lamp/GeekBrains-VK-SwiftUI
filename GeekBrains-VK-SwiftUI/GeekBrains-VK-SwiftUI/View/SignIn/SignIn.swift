@@ -39,6 +39,8 @@ struct SignIn: View {
                             TextField("", text: $login)
                                 .frame(maxWidth: 200)
                                 .textFieldStyle(RoundedBorderTextFieldStyle())
+                                .autocapitalization(.none)
+                                .disableAutocorrection(true)
                         }
                         HStack {
                             Text("Пароль")

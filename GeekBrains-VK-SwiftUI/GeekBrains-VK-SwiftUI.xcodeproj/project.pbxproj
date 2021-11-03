@@ -16,6 +16,8 @@
 		4E209E1E271CCA9700B29C27 /* SocialActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E209E1D271CCA9700B29C27 /* SocialActivity.swift */; };
 		4E2AED9C273187190036ABC5 /* LikesRequests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2AED9B273187190036ABC5 /* LikesRequests.swift */; };
 		4E2AED9F27318FB00036ABC5 /* LikeButtonAndCountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2AED9E27318FB00036ABC5 /* LikeButtonAndCountView.swift */; };
+		4E2AEDA12731DADA0036ABC5 /* SearchAndAddingNewGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2AEDA02731DADA0036ABC5 /* SearchAndAddingNewGroup.swift */; };
+		4E2AEDA32731DE320036ABC5 /* SearchBur.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2AEDA22731DE320036ABC5 /* SearchBur.swift */; };
 		4E326892271ADAC6007D962A /* VKAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E326891271ADAC6007D962A /* VKAuth.swift */; };
 		4E326894271AE005007D962A /* SignInWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E326893271AE005007D962A /* SignInWebView.swift */; };
 		4E326896271AE2BB007D962A /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E326895271AE2BB007D962A /* Session.swift */; };
@@ -59,6 +61,8 @@
 		4E209E1D271CCA9700B29C27 /* SocialActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialActivity.swift; sourceTree = "<group>"; };
 		4E2AED9B273187190036ABC5 /* LikesRequests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikesRequests.swift; sourceTree = "<group>"; };
 		4E2AED9E27318FB00036ABC5 /* LikeButtonAndCountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeButtonAndCountView.swift; sourceTree = "<group>"; };
+		4E2AEDA02731DADA0036ABC5 /* SearchAndAddingNewGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchAndAddingNewGroup.swift; sourceTree = "<group>"; };
+		4E2AEDA22731DE320036ABC5 /* SearchBur.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBur.swift; sourceTree = "<group>"; };
 		4E326891271ADAC6007D962A /* VKAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VKAuth.swift; sourceTree = "<group>"; };
 		4E326893271AE005007D962A /* SignInWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInWebView.swift; sourceTree = "<group>"; };
 		4E326895271AE2BB007D962A /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
@@ -198,6 +202,7 @@
 				4E2AED9D27318F770036ABC5 /* SocialActivity */,
 				4E517FD327008B9A0021967F /* NamesPrototype.swift */,
 				4ED5B948272DEDBA00F88CE6 /* LoadingImageView.swift */,
+				4E2AEDA22731DE320036ABC5 /* SearchBur.swift */,
 			);
 			path = Prototypes;
 			sourceTree = "<group>";
@@ -244,6 +249,7 @@
 			isa = PBXGroup;
 			children = (
 				4E67162127134203003BD400 /* GroupsTable.swift */,
+				4E2AEDA02731DADA0036ABC5 /* SearchAndAddingNewGroup.swift */,
 			);
 			path = Groups;
 			sourceTree = "<group>";
@@ -425,6 +431,7 @@
 				4E517FDE2700AB3D0021967F /* SocialActivityPanel.swift in Sources */,
 				4E517FD0270088A20021967F /* SignIn.swift in Sources */,
 				4E209E1E271CCA9700B29C27 /* SocialActivity.swift in Sources */,
+				4E2AEDA32731DE320036ABC5 /* SearchBur.swift in Sources */,
 				4E2AED9C273187190036ABC5 /* LikesRequests.swift in Sources */,
 				4EF357C2271D886E005C0912 /* Photo.swift in Sources */,
 				4E517FD627009AD40021967F /* CircleShadowViewModifier.swift in Sources */,
@@ -437,6 +444,7 @@
 				4E326894271AE005007D962A /* SignInWebView.swift in Sources */,
 				4ED1AF1927147AF600C72D0E /* FriendPhotosGallery.swift in Sources */,
 				4E67161D27132BCB003BD400 /* FriendsTable.swift in Sources */,
+				4E2AEDA12731DADA0036ABC5 /* SearchAndAddingNewGroup.swift in Sources */,
 				4ED5B949272DEDBA00F88CE6 /* LoadingImageView.swift in Sources */,
 				4E67162527134622003BD400 /* NewsTable.swift in Sources */,
 				4E326899271AE4D5007D962A /* Keychain.swift in Sources */,

@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct MainView: View {
-    @Environment(\.presentationMode) var presentationMode
+//    @Environment(\.presentationMode) var presentationMode
     
     private let tabs = ["Друзья", "Группы", "Новости"]
     
@@ -29,7 +29,7 @@ struct MainView: View {
                 Text(tabs[1])
             }
                 
-            NavigationView {  NewsTable() }
+            NavigationView { NewsTable() }
             .tabItem {
                 Image(systemName: "newspaper")
                 Text(tabs[2])

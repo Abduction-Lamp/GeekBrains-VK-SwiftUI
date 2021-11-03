@@ -48,18 +48,21 @@ struct SocialActivityPanel: View {
             Image(systemName: "bubble.left")
                 .foregroundColor(style.vkBrandColor)
             Text(comments?.count.description ?? " ")
+                .lineLimit(1)
             
             Image(systemName: "arrowshape.turn.up.right")
                 .foregroundColor(style.vkBrandColor)
                 .padding(.leading, 5.0)
             Text(reposts?.count.description ?? " ")
+                .lineLimit(1)
             
             Spacer()
             
             Image(systemName: "eye")
                 .foregroundColor(.gray)
                 .padding(.trailing, 2.0)
-            Text(views?.count.description ?? " ")
+            Text(views?.getCountString() ?? " ")
+                .lineLimit(1)
                 .padding(.trailing, 5.0)
         }
         .padding(.top, 10.0)

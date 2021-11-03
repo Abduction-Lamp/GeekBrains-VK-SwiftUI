@@ -44,6 +44,7 @@ struct LikeButtonAndCountView: View {
                     pushLikeButton()
                 }
             Text(likes?.count.description ?? " ")
+                .lineLimit(1)
         }
     }
     
