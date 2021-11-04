@@ -15,7 +15,7 @@ struct SearchBar: View {
         NotificationCenter.default.publisher(for: UIResponder.keyboardDidHideNotification).map { _ in false }
     )
     
-    @EnvironmentObject var list: GroupsView
+    @EnvironmentObject var searchList: GroupsView
     @State var searchText: String = ""
 
     
@@ -31,7 +31,7 @@ struct SearchBar: View {
                 .autocapitalization(.none)
                 .disableAutocorrection(true)
                 .onChange(of: searchText, perform: { _ in
-                    list.search(text: searchText)
+                    searchList.search(text: searchText)
                 })
             }
             .padding(.leading, 15)

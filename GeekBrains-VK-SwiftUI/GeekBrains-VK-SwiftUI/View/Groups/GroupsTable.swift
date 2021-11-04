@@ -9,7 +9,7 @@ import SwiftUI
 
 
 protocol NewGroapDelegate {
-    func addNewGroup(graup: GroupViewModel)  -> Void
+    func addNewGroup(group: GroupViewModel)  -> Void
 }
 
 
@@ -17,6 +17,7 @@ struct GroupsTable: View {
     
     @ObservedObject var list = GroupsView()
         
+    
     var body: some View {
         List {
             ForEach(list.groups) { group in
@@ -35,17 +36,10 @@ struct GroupsTable: View {
     }
     
     private func makeButtomAdd() -> some View {
-       let buttom = NavigationLink(destination: SearchAndAddingNewGroup(delegate: self)) {
+        let buttom = NavigationLink(destination: SearchAndAddingNewGroup().environmentObject(list)) {
             Image(systemName: "plus")
         }
         return buttom
     }
 }
 
-
-extension GroupsTable: NewGroapDelegate {
-    
-    internal func addNewGroup(graup: GroupViewModel) {
-        list.join(group: graup)
-    }
-}

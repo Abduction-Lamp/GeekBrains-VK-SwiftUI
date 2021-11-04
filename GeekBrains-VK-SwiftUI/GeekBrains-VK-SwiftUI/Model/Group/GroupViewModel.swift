@@ -26,7 +26,6 @@ final class GroupViewModel: SameDataSetProtocol, Identifiable {
     }
 }
 
-
 extension GroupViewModel: Equatable {
     
     static func == (lhs: GroupViewModel, rhs: GroupViewModel) -> Bool {
@@ -40,6 +39,7 @@ final class GroupsView: ObservableObject {
 
     @Published var groups: [GroupViewModel] = []
 
+    
     public func fetch() {
         let network = NetworkService.instance
         network.groups.get { [weak self] response in
@@ -72,7 +72,9 @@ final class GroupsView: ObservableObject {
         let network = NetworkService.instance
         network.groups.join(id: group.id)
         print("URLSession: User join new group")
-        self.groups.append(group)
+        if !self.groups.contains(group) {
+            self.groups.append(group)
+        }
     }
     
     public func leave(group: GroupViewModel) {

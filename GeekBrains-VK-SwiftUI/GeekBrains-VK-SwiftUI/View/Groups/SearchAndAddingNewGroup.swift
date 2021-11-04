@@ -11,31 +11,26 @@ import SwiftUI
 struct SearchAndAddingNewGroup: View {
     
     @Environment(\.presentationMode) var presentationMode
-    @StateObject var list = GroupsView()
+    @EnvironmentObject var list: GroupsView
     
-    private var delegate: NewGroapDelegate?
-    
-    init(delegate: NewGroapDelegate?) {
-        self.delegate = delegate
-    }
+    @StateObject var searchList = GroupsView()
     
     
     var body: some View {
         VStack {
             SearchBar()
-                .environmentObject(list)
-            List {
-                ForEach(list.groups) { group in
-                    Button(
-                        action: {
-                            delegate?.addNewGroup(graup: group)
-                            self.presentationMode.wrappedValue.dismiss()
-                        },
-                        label: {
-                            NamesPrototype(model: group)
-                        }
-                    )
-                }
+                .environmentObject(searchList)
+            
+            List(searchList.groups) { group in
+                Button(
+                    action: {
+                        self.list.join(group: group)
+                        self.presentationMode.wrappedValue.dismiss()
+                    },
+                    label: {
+                        NamesPrototype(model: group)
+                    }
+                )
             }
         }
         .navigationBarTitle("Поиск по группам", displayMode: .inline)
