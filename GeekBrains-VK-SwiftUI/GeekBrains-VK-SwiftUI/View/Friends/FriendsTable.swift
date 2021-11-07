@@ -12,19 +12,24 @@ struct FriendsTable: View {
     
     @ObservedObject var list = FriendsListWithSections()
     
+    @Binding var mark: MarkNavigtion
+    
+    
     var body: some View {
     
         List {
             ForEach(list.friends) { section in
                 Section(header: Text(section.title)) {
                     ForEach(section.items) { friend in
-                        NavigationLink(destination: FriendPhotosGallery(id: friend.id, name: friend.name)) {
-                            NamesPrototype(model: friend)
-                        }
+                        NamesPrototype(model: friend)
+                            .onTapGesture {
+                                self.mark = .FriendPhotosGallery(id: friend.id, name: friend.name)
+                            }
                     }
                 }
             }
         }
+        .navigationBarHidden(false)
         .navigationBarTitle("Друзья", displayMode: .inline)
         .onAppear(perform: list.fetch)
     }

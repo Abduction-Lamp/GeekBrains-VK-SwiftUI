@@ -9,16 +9,16 @@ import SwiftUI
 
 
 struct MainView: View {
-//    @Environment(\.presentationMode) var presentationMode
     
-    private let tabs = ["Друзья", "Группы", "Новости"]
-    
-    @State private var selectedTab = 0
+    @Binding var mark: MarkNavigtion
 
+    private let tabs = ["Друзья", "Группы", "Новости"]
+    @State private var selectedTab = 0
+    
     
     var body: some View {
         TabView(selection: $selectedTab) {
-            NavigationView { FriendsTable() }
+            FriendsTable(mark: $mark)
             .tabItem {
                 Image(systemName: "person.3.fill")
                 Text(tabs[0])
@@ -36,5 +36,6 @@ struct MainView: View {
                 Text(tabs[2])
             }
         }
+        .navigationBarHidden(true)
     }
 }
