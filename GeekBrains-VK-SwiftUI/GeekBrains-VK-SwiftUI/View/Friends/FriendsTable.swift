@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+
 struct FriendsTable: View {
     
     @ObservedObject var list = FriendsListWithSections()
