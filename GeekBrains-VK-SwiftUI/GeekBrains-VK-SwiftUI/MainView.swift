@@ -7,35 +7,36 @@
 
 import SwiftUI
 
-
 struct MainView: View {
     
     @Binding var mark: MarkNavigtion
-
-    private let tabs = ["Друзья", "Группы", "Новости"]
-    @State private var selectedTab = 0
+    @State private var selectedTab: Int = 0
     
     
     var body: some View {
+        
         TabView(selection: $selectedTab) {
             FriendsTable(mark: $mark)
-            .tabItem {
-                Image(systemName: "person.3.fill")
-                Text(tabs[0])
-            }
+                .tabItem {
+                    Image(systemName: "person.3.fill")
+                    Text("Друзья")
+                }
+                .tag(0)
             
-            NavigationView { GroupsTable() }
-            .tabItem {
-                Image(systemName: "bookmark.circle.fill")
-                Text(tabs[1])
-            }
-                
-            NavigationView { NewsTable() }
-            .tabItem {
-                Image(systemName: "newspaper")
-                Text(tabs[2])
-            }
+            GroupsTable(mark: $mark)
+                .tabItem {
+                    Image(systemName: "bookmark.circle.fill")
+                    Text("Группы")
+                }
+                .tag(1)
+            
+            NewsTable()
+                .tabItem {
+                    Image(systemName: "newspaper")
+                    Text("Новости")
+                }
+                .tag(2)
         }
-        .navigationBarHidden(true)
+        .modifier(NavigationItemsForTabBar(selection: $selectedTab, mark: $mark))
     }
 }

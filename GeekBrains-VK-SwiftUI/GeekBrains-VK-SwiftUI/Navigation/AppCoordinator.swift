@@ -18,7 +18,8 @@ class AppCoordinator: Coordinator {
     let navigationController: UINavigationController
     var onCompleted: (() -> Void)?
     
-    @ObservedObject var navigationViewModel: NavigationViewModel = NavigationViewModel()
+    @ObservedObject
+    var navigationViewModel: NavigationViewModel = NavigationViewModel()
     
     
     public init(navigationController: UINavigationController, onCompleted: (() -> Void)? = nil) {
@@ -33,38 +34,55 @@ class AppCoordinator: Coordinator {
         
         navigationViewModel
             .$mark
+            .removeDuplicates()
             .subscribe(on: RunLoop.main)
             .sink { [weak self] navigationViewModel in
                 guard let self = self else { return }
                 switch navigationViewModel {
                 case .SignInContentView:
                     self.makeSignInWebView()
+                    
                 case .MainTabView:
                     self.makeMainTabView()
+                    
                 case .FriendPhotosGallery(let id, let name):
                     self.makeFriendPhotosGalleryView(id: id, name: name)
+                    
+                case .SearchAndAddingNewGroup:
+                    self.makeSearchAndAddingNewGroupView()
+                    
+                case .StepBack:
+                    self.navigationController.popViewController(animated: true)
+                    
+                case .ViewDisappear:
+                    break
                 }
+            
             }
             .store(in: &cancellables)
     }
     
     
-    // MARK: -
+    
+    // MARK: - Make & Push VC
     //
     private func makeSignInWebView() {
-        self.navigationController.isToolbarHidden = true
-        self.navigationController.popToRootViewController(animated: true)
+        navigationController.popToRootViewController(animated: true)
     }
     
     private func makeMainTabView() {
-        let mainTabVC = UIHostingController(rootView: MainView(mark: self.$navigationViewModel.mark))
-        self.navigationController.isToolbarHidden = true
-        self.navigationController.pushViewController(mainTabVC, animated: true)
+        let mainTabVC = UIHostingController(rootView: MainView(mark: $navigationViewModel.mark))
+        navigationController.pushViewController(mainTabVC, animated: true)
+        navigationController.navigationBar.topItem?.title = "Выход"
     }
     
     private func makeFriendPhotosGalleryView(id: Int, name: String) {
-        let friendPhotosGalleryVC = UIHostingController(rootView: FriendPhotosGallery(id: id, name: name))
-        self.navigationController.isToolbarHidden = false
-        self.navigationController.pushViewController(friendPhotosGalleryVC, animated: true)
+        let friendPhotosGalleryVC = UIHostingController(rootView: FriendPhotosGallery(mark: $navigationViewModel.mark, id: id, name: name))
+        navigationController.pushViewController(friendPhotosGalleryVC, animated: true)
+    }
+
+    private func makeSearchAndAddingNewGroupView() {
+        let searchAndAddingNewGroupVC = UIHostingController(rootView: SearchAndAddingNewGroup(mark: $navigationViewModel.mark))
+        navigationController.pushViewController(searchAndAddingNewGroupVC, animated: true)
     }
 }

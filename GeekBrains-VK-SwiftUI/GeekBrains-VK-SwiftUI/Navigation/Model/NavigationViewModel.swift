@@ -8,11 +8,15 @@
 import SwiftUI
 
 
-enum MarkNavigtion {
+public enum MarkNavigtion: Equatable {
     case SignInContentView
     case MainTabView
     case FriendPhotosGallery(id: Int, name: String)
+    case SearchAndAddingNewGroup
+    case StepBack
+    case ViewDisappear
 }
+
 
 class NavigationViewModel: ObservableObject {
 

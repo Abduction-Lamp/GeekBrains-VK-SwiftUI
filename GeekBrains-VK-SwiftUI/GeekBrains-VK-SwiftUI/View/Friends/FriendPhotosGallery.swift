@@ -17,11 +17,14 @@ struct FriendPhotosGallery: View {
     @State private var isShowFullScreen: Bool = false
     @State private var model: PhotoViewModel?
     
+    @Binding var mark: MarkNavigtion
+    
     var ownerName: String
     var ownerId: Int
     
     
-    init(id: Int, name: String) {
+    init(mark: Binding<MarkNavigtion>, id: Int, name: String) {
+        self._mark = mark
         self.ownerId = id
         self.ownerName = name
     }
@@ -58,6 +61,9 @@ struct FriendPhotosGallery: View {
         }
         .fullScreenCover(item: $model) { item in
             PhotoFullScreen(url: item.getPhotoMaxSize().url)
+        }
+        .onDisappear() {
+            mark = .ViewDisappear
         }
     }
 }

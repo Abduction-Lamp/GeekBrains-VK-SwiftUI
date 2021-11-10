@@ -11,12 +11,9 @@ import SwiftUI
 struct FriendsTable: View {
     
     @ObservedObject var list = FriendsListWithSections()
-    
     @Binding var mark: MarkNavigtion
     
-    
     var body: some View {
-    
         List {
             ForEach(list.friends) { section in
                 Section(header: Text(section.title)) {
@@ -29,8 +26,6 @@ struct FriendsTable: View {
                 }
             }
         }
-        .navigationBarHidden(false)
-        .navigationBarTitle("Друзья", displayMode: .inline)
         .onAppear(perform: list.fetch)
     }
 }

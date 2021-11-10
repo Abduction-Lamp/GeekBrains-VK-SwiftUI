@@ -51,6 +51,7 @@
 		4EF4B6E026ECF6E100CB5D09 /* GeekBrains_VK_SwiftUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF4B6DF26ECF6E100CB5D09 /* GeekBrains_VK_SwiftUIApp.swift */; };
 		4EF4B6E426ECF6E200CB5D09 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4EF4B6E326ECF6E200CB5D09 /* Assets.xcassets */; };
 		4EF4B6E726ECF6E200CB5D09 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4EF4B6E626ECF6E200CB5D09 /* Preview Assets.xcassets */; };
+		4EFAA8FC273BD6C900D5C1F8 /* NavigationItemsForTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EFAA8FB273BD6C900D5C1F8 /* NavigationItemsForTabBar.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -98,6 +99,7 @@
 		4EF4B6E326ECF6E200CB5D09 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4EF4B6E626ECF6E200CB5D09 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		4EF4B6E826ECF6E200CB5D09 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4EFAA8FB273BD6C900D5C1F8 /* NavigationItemsForTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationItemsForTabBar.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -223,6 +225,7 @@
 			isa = PBXGroup;
 			children = (
 				4E517FD527009AD40021967F /* CircleShadowViewModifier.swift */,
+				4EFAA8FB273BD6C900D5C1F8 /* NavigationItemsForTabBar.swift */,
 			);
 			path = ViewModifier;
 			sourceTree = "<group>";
@@ -470,6 +473,7 @@
 				4E67161D27132BCB003BD400 /* FriendsTable.swift in Sources */,
 				4E2AEDA12731DADA0036ABC5 /* SearchAndAddingNewGroup.swift in Sources */,
 				4ED5B949272DEDBA00F88CE6 /* LoadingImageView.swift in Sources */,
+				4EFAA8FC273BD6C900D5C1F8 /* NavigationItemsForTabBar.swift in Sources */,
 				4E67162527134622003BD400 /* NewsTable.swift in Sources */,
 				4E326899271AE4D5007D962A /* Keychain.swift in Sources */,
 			);
