@@ -38,7 +38,6 @@
 		4E67161F271330A1003BD400 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E67161E271330A1003BD400 /* MainView.swift */; };
 		4E67162227134203003BD400 /* GroupsTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E67162127134203003BD400 /* GroupsTable.swift */; };
 		4E67162527134622003BD400 /* NewsTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E67162427134622003BD400 /* NewsTable.swift */; };
-		4E67588E271DD1C50004AA42 /* ASCollectionView in Frameworks */ = {isa = PBXBuildFile; productRef = 4E67588D271DD1C50004AA42 /* ASCollectionView */; };
 		4E675893271E00A00004AA42 /* PhotosRequests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E675892271E00A00004AA42 /* PhotosRequests.swift */; };
 		4E675895271E06110004AA42 /* PhotoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E675894271E06110004AA42 /* PhotoViewModel.swift */; };
 		4E91230C271C5691001E4FBE /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E91230B271C5691001E4FBE /* User.swift */; };
@@ -108,7 +107,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				4E5F42D5272F146C00DF2A98 /* SDWebImageSwiftUI in Frameworks */,
-				4E67588E271DD1C50004AA42 /* ASCollectionView in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -375,7 +373,6 @@
 			);
 			name = "GeekBrains-VK-SwiftUI";
 			packageProductDependencies = (
-				4E67588D271DD1C50004AA42 /* ASCollectionView */,
 				4E5F42D4272F146C00DF2A98 /* SDWebImageSwiftUI */,
 			);
 			productName = "GeekBrains-VK-SwiftUI";
@@ -406,7 +403,6 @@
 			);
 			mainGroup = 4EF4B6D326ECF6E100CB5D09;
 			packageReferences = (
-				4E67588C271DD1C50004AA42 /* XCRemoteSwiftPackageReference "ASCollectionView" */,
 				4E5F42D3272F146C00DF2A98 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */,
 			);
 			productRefGroup = 4EF4B6DD26ECF6E100CB5D09 /* Products */;
@@ -674,14 +670,6 @@
 				minimumVersion = 2.0.2;
 			};
 		};
-		4E67588C271DD1C50004AA42 /* XCRemoteSwiftPackageReference "ASCollectionView" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/apptekstudios/ASCollectionView";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 2.1.1;
-			};
-		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -689,11 +677,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 4E5F42D3272F146C00DF2A98 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */;
 			productName = SDWebImageSwiftUI;
-		};
-		4E67588D271DD1C50004AA42 /* ASCollectionView */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 4E67588C271DD1C50004AA42 /* XCRemoteSwiftPackageReference "ASCollectionView" */;
-			productName = ASCollectionView;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
