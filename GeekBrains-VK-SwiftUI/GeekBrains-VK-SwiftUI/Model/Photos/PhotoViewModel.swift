@@ -62,3 +62,11 @@ final class PhotosView: ObservableObject {
         }
     }
 }
+
+
+extension PhotoViewModel: Equatable {
+    
+    static func == (lhs: PhotoViewModel, rhs: PhotoViewModel) -> Bool {
+        lhs.id == rhs.id
+    }
+}

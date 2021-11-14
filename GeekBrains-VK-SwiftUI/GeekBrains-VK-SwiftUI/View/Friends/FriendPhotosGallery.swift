@@ -65,7 +65,7 @@ struct FriendPhotosGallery: View {
             list.fetch(owner: ownerId)
         }
         .fullScreenCover(item: $model) { item in
-            PhotoFullScreen(url: item.getPhotoMaxSize().url)
+            PhotoFullScreen(list.photos.compactMap { $0 }, selected: item.id)
         }
         .onDisappear() {
             mark = .ViewDisappear

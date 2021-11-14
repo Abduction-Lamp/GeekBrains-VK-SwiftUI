@@ -12,40 +12,38 @@ import SDWebImageSwiftUI
 struct PhotoFullScreen: View {
     @Environment(\.presentationMode) var presentationMode
     
-    private var url: URL?
-    private var isNoPhoto: Bool = false
+    private var userPhotosList: [PhotoViewModel]
+    @State private var selectedItem: Int
     
     
-    init(url: URL?) {
-        self.url = url
-        if self.url == nil {
-            self.isNoPhoto = true
-        } else {
-            self.isNoPhoto = false
-        }
+    init(_ photos: [PhotoViewModel], selected: Int) {
+        userPhotosList = photos
+        _selectedItem = State(initialValue: selected)
     }
+    
     
     var body: some View {
         ZStack {
             Color.black
                 .ignoresSafeArea()
             
-            if isNoPhoto {
-                Image(systemName: "crown")
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .foregroundColor(.gray)
-            } else {
-                WebImage(url: url)
-                    .renderingMode(.original)
-                    .resizable()
-                    .placeholder {
-                        LoadingImageView()
-                            .frame(width: 150, height: 150, alignment: .center)
-                    }
-                    .transition(.fade(duration: 0.25))
-                    .scaledToFit()
+            TabView(selection: $selectedItem) {
+                ForEach(userPhotosList) { photo in
+                    WebImage(url: photo.getPhotoMaxSize().url)
+                        .renderingMode(.original)
+                        .resizable()
+                        .placeholder {
+                            LoadingImageView()
+                                .frame(width: 150, height: 150, alignment: .center)
+                        }
+                        .transition(.fade(duration: 0.25))
+                        .scaledToFit()
+                        .tag(photo.id)
+                }
             }
+            .tabViewStyle(PageTabViewStyle())
+            .background(Color.black)
+            
             
             VStack {
                 HStack {
