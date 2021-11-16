@@ -15,7 +15,7 @@ struct NamesPrototype: View {
 
     private let style = ConstUIStyle.instances
     
-    init(model: SameDataSetProtocol) {
+    init(model: NamesViewProtocol) {
         avatar = model.avatar
         name = model.name
     }

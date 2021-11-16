@@ -38,5 +38,6 @@ struct MainView: View {
                 .tag(2)
         }
         .modifier(NavigationItemsForTabBar(selection: $selectedTab, mark: $mark))
+        .navigationBarBackButtonHidden(true)
     }
 }

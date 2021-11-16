@@ -29,7 +29,7 @@
 		4E517FDE2700AB3D0021967F /* SocialActivityPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E517FDD2700AB3D0021967F /* SocialActivityPanel.swift */; };
 		4E517FE12700B33B0021967F /* FriendViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E517FE02700B33B0021967F /* FriendViewModel.swift */; };
 		4E517FE32700B3E10021967F /* GroupViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E517FE22700B3E10021967F /* GroupViewModel.swift */; };
-		4E517FE52700B4490021967F /* SameDataSetProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E517FE42700B4490021967F /* SameDataSetProtocol.swift */; };
+		4E517FE52700B4490021967F /* NamesViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E517FE42700B4490021967F /* NamesViewProtocol.swift */; };
 		4E517FE72700B4B10021967F /* NewsfeedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E517FE62700B4B10021967F /* NewsfeedViewModel.swift */; };
 		4E5296012737F00A0088C473 /* CoordinatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E5296002737F0090088C473 /* CoordinatorProtocol.swift */; };
 		4E5296032737F1560088C473 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E5296022737F1560088C473 /* AppCoordinator.swift */; };
@@ -76,7 +76,7 @@
 		4E517FDD2700AB3D0021967F /* SocialActivityPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialActivityPanel.swift; sourceTree = "<group>"; };
 		4E517FE02700B33B0021967F /* FriendViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendViewModel.swift; sourceTree = "<group>"; };
 		4E517FE22700B3E10021967F /* GroupViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupViewModel.swift; sourceTree = "<group>"; };
-		4E517FE42700B4490021967F /* SameDataSetProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SameDataSetProtocol.swift; sourceTree = "<group>"; };
+		4E517FE42700B4490021967F /* NamesViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NamesViewProtocol.swift; sourceTree = "<group>"; };
 		4E517FE62700B4B10021967F /* NewsfeedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsfeedViewModel.swift; sourceTree = "<group>"; };
 		4E5296002737F0090088C473 /* CoordinatorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorProtocol.swift; sourceTree = "<group>"; };
 		4E5296022737F1560088C473 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
@@ -236,7 +236,7 @@
 				4E209E14271CA78200B29C27 /* Group */,
 				4E209E15271CA7A600B29C27 /* Newsfeed */,
 				4EF357C0271D8850005C0912 /* Photos */,
-				4E517FE42700B4490021967F /* SameDataSetProtocol.swift */,
+				4E517FE42700B4490021967F /* NamesViewProtocol.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -445,7 +445,7 @@
 				4E517FE32700B3E10021967F /* GroupViewModel.swift in Sources */,
 				4E5296032737F1560088C473 /* AppCoordinator.swift in Sources */,
 				4E0E252C26F73E2300C66F19 /* ConstUIStyle.swift in Sources */,
-				4E517FE52700B4490021967F /* SameDataSetProtocol.swift in Sources */,
+				4E517FE52700B4490021967F /* NamesViewProtocol.swift in Sources */,
 				4E517FE72700B4B10021967F /* NewsfeedViewModel.swift in Sources */,
 				4E91230C271C5691001E4FBE /* User.swift in Sources */,
 				4E67162227134203003BD400 /* GroupsTable.swift in Sources */,

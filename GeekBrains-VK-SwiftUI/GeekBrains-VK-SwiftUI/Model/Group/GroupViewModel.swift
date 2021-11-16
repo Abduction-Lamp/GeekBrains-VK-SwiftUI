@@ -8,7 +8,7 @@
 import Foundation
 
 
-final class GroupViewModel: SameDataSetProtocol, Identifiable {
+final class GroupViewModel: NamesViewProtocol, Identifiable {
     var id:     Int
     var name:   String
     var avatar: URL?

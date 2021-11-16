@@ -32,8 +32,7 @@ class AppCoordinator: Coordinator {
         let rootViewController = UIHostingController(rootView: SignInWebView(mark: $navigationViewModel.mark))
         navigationController.pushViewController(rootViewController, animated: false)
         
-        navigationViewModel
-            .$mark
+        navigationViewModel.$mark
             .removeDuplicates()
             .subscribe(on: RunLoop.main)
             .sink { [weak self] navigationViewModel in
@@ -57,7 +56,6 @@ class AppCoordinator: Coordinator {
                 case .ViewDisappear:
                     break
                 }
-            
             }
             .store(in: &cancellables)
     }
@@ -73,7 +71,6 @@ class AppCoordinator: Coordinator {
     private func makeMainTabView() {
         let mainTabVC = UIHostingController(rootView: MainView(mark: $navigationViewModel.mark))
         navigationController.pushViewController(mainTabVC, animated: true)
-        navigationController.navigationBar.topItem?.title = "Выход"
     }
     
     private func makeFriendPhotosGalleryView(id: Int, name: String) {

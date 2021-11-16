@@ -38,14 +38,7 @@ struct NavigationItemsForTabBar: ViewModifier {
         default:
             content
                 .navigationBarTitle("", displayMode: .inline)
-                .navigationBarItems(leading:
-                                        Button(action: {
-                                            mark = .SignInContentView
-                                        },
-                                        label: {
-                                            Image(systemName: "power")
-                                        }),
-                                    trailing: EmptyView())
+                .navigationBarItems(trailing: EmptyView())
         }
     }
 }

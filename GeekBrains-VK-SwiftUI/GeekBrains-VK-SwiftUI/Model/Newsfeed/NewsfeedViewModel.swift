@@ -8,7 +8,7 @@
 import Foundation
 
 
-final class NewsfeedViewModel: SameDataSetProtocol, Identifiable {
+final class NewsfeedViewModel: NamesViewProtocol, Identifiable {
     static var nextFrom: String = ""
     
     var type:       String

@@ -11,8 +11,9 @@ import SwiftUI
 struct SearchAndAddingNewGroup: View {
     
     @Environment(\.presentationMode) var presentationMode
-    @StateObject var searchList = GroupsView()
+    @StateObject private var searchList = GroupsView()
     @Binding var mark: MarkNavigtion
+    
     
     var body: some View {
         VStack {
@@ -27,7 +28,7 @@ struct SearchAndAddingNewGroup: View {
                     }
             }
         }
-        .navigationBarTitle("Поиск по группам", displayMode: .inline)
+        .navigationTitle("Поиск по группам")
         .onTapGesture {
             UIApplication.shared.endEditing()
         }

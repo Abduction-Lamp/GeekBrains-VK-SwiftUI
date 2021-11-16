@@ -40,23 +40,37 @@ struct FriendPhotosGallery: View {
             LazyVGrid(columns: columns, alignment: .center, spacing: 7)  {
                 ForEach(list.photos) { item in
                     let url = item.getPhotoMaxSize().url
-                    Button(
-                        action: {
-                            model = item
-                            isShowFullScreen = true
-                        },
-                        label: {
-                            WebImage(url: url)
-                                .renderingMode(.original)
-                                .resizable()
-                                .placeholder {
-                                    LoadingImageView()
-                                        .frame(width: 150, height: 150, alignment: .center)
-                                }
-                                .transition(.fade(duration: 0.25))
-                                .scaledToFit()
-                        })
-                        .cornerRadius(10.0)
+
+                    ZStack {
+                        Button(
+                            action: {
+                                model = item
+                                isShowFullScreen = true
+                            },
+                            label: {
+                                WebImage(url: url)
+                                    .renderingMode(.original)
+                                    .resizable()
+                                    .placeholder {
+                                        LoadingImageView()
+                                            .frame(width: 150, height: 150, alignment: .center)
+                                    }
+                                    .transition(.fade(duration: 0.25))
+                                    .scaledToFit()
+                            })
+                            .cornerRadius(10.0)
+                        
+                        VStack {
+                            Spacer()
+                            HStack {
+                                Image(systemName: "heart.fill")
+                                    .foregroundColor(.red)
+                                    .padding()
+                                    .opacity(item.isLike ? 0.9 : 0.0)
+                                Spacer()
+                            }
+                        }
+                    }
                 }
             }
         }
@@ -65,7 +79,7 @@ struct FriendPhotosGallery: View {
             list.fetch(owner: ownerId)
         }
         .fullScreenCover(item: $model) { item in
-            PhotoFullScreen(list.photos.compactMap { $0 }, selected: item.id)
+            PhotoFullScreen(list: _list, selected: item.id)
         }
         .onDisappear() {
             mark = .ViewDisappear
