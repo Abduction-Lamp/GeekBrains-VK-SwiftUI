@@ -10,7 +10,7 @@ import SDWebImageSwiftUI
 
 
 struct FriendPhotosGallery: View {
-        
+    
     @ObservedObject var list: PhotosView = PhotosView()
     
     @State private var isShowFullScreen: Bool = false
@@ -25,7 +25,7 @@ struct FriendPhotosGallery: View {
         GridItem(.flexible(minimum: 0, maximum: .infinity)),
         GridItem(.flexible(minimum: 0, maximum: .infinity)),
     ]
-
+    
     
     
     init(mark: Binding<MarkNavigtion>, id: Int, name: String) {
@@ -40,25 +40,22 @@ struct FriendPhotosGallery: View {
             LazyVGrid(columns: columns, alignment: .center, spacing: 7)  {
                 ForEach(list.photos) { item in
                     let url = item.getPhotoMaxSize().url
-
+                    
                     ZStack {
-                        Button(
-                            action: {
+                        WebImage(url: url)
+                            .renderingMode(.original)
+                            .resizable()
+                            .placeholder {
+                                LoadingImageView()
+                                    .frame(width: 150, height: 150, alignment: .center)
+                            }
+                            .transition(.fade(duration: 0.25))
+                            .scaledToFit()
+                            .cornerRadius(10.0)
+                            .onTapGesture {
                                 model = item
                                 isShowFullScreen = true
-                            },
-                            label: {
-                                WebImage(url: url)
-                                    .renderingMode(.original)
-                                    .resizable()
-                                    .placeholder {
-                                        LoadingImageView()
-                                            .frame(width: 150, height: 150, alignment: .center)
-                                    }
-                                    .transition(.fade(duration: 0.25))
-                                    .scaledToFit()
-                            })
-                            .cornerRadius(10.0)
+                            }
                         
                         VStack {
                             Spacer()
@@ -70,6 +67,9 @@ struct FriendPhotosGallery: View {
                                 Spacer()
                             }
                         }
+                    }
+                    .onLongPressGesture {
+                        let _ = list.like(id: item.id)
                     }
                 }
             }
