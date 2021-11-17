@@ -54,7 +54,7 @@ final class PhotoViewModel: Identifiable {
 }
 
 
-final class PhotosView: ObservableObject {
+final class PhotoViewModelList: ObservableObject {
     
     public var photos: [PhotoViewModel] = []
 

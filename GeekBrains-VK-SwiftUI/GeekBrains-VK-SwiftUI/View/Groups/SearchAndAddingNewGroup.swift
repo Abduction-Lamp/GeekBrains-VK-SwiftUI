@@ -11,7 +11,7 @@ import SwiftUI
 struct SearchAndAddingNewGroup: View {
     
     @Environment(\.presentationMode) var presentationMode
-    @StateObject private var searchList = GroupsView()
+    @StateObject private var searchList = GroupViewModelList()
     @Binding var mark: MarkNavigtion
     
     

@@ -11,7 +11,7 @@ import SDWebImageSwiftUI
 
 struct FriendPhotosGallery: View {
     
-    @ObservedObject var list: PhotosView = PhotosView()
+    @ObservedObject var list: PhotoViewModelList = PhotoViewModelList()
     
     @State private var isShowFullScreen: Bool = false
     @State private var model: PhotoViewModel?

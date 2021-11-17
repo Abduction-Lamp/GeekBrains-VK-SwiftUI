@@ -10,7 +10,7 @@ import SwiftUI
 
 struct GroupsTable: View {
     
-    @ObservedObject private var list = GroupsView()
+    @ObservedObject private var list = GroupViewModelList()
     @State private var isOneLoadData: Bool = true
     
     @Binding var mark: MarkNavigtion

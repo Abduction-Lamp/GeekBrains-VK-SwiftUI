@@ -12,13 +12,13 @@ import SDWebImageSwiftUI
 struct PhotoFullScreen: View {
     @Environment(\.presentationMode) var presentationMode
 
-    @ObservedObject var list: PhotosView
+    @ObservedObject var list: PhotoViewModelList
     @State private var selectedItem: Int
     @State private var isLike: Bool = false
     @State private var moveAnimation: Bool = false
     
     
-    init(list: ObservedObject<PhotosView>, selected: Int) {
+    init(list: ObservedObject<PhotoViewModelList>, selected: Int) {
         self._list = list
         self._selectedItem = State(initialValue: selected)
     }

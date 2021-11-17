@@ -58,7 +58,7 @@ final class NewsfeedViewModel: NamesViewProtocol, Identifiable {
 }
 
 
-final class NewsView: ObservableObject {
+final class NewsfeedViewModelList: ObservableObject {
     
     public var newsfeed: [NewsfeedViewModel] = []
     

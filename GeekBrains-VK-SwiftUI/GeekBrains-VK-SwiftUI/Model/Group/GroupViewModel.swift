@@ -7,7 +7,6 @@
 
 import Foundation
 
-
 final class GroupViewModel: NamesViewProtocol, Identifiable {
     var id:     Int
     var name:   String
@@ -35,7 +34,7 @@ extension GroupViewModel: Equatable {
 
 
 
-final class GroupsView: ObservableObject {
+final class GroupViewModelList: ObservableObject {
 
     @Published var groups: [GroupViewModel] = []
 

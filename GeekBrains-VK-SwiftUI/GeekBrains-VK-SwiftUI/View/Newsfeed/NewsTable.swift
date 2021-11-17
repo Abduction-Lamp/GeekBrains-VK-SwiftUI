@@ -9,7 +9,7 @@ import SwiftUI
 
 struct NewsTable: View {
     
-    @ObservedObject var list = NewsView()
+    @ObservedObject var list = NewsfeedViewModelList()
     
     var body: some View {
         List(list.newsfeed) { news in

@@ -130,8 +130,9 @@
 				4E67161B27132B78003BD400 /* Friends */,
 				4E671620271341D0003BD400 /* Groups */,
 				4E67162327134605003BD400 /* Newsfeed */,
-				4E517FD127008B0C0021967F /* Prototypes */,
 				4E67588F271DD34A0004AA42 /* Photos */,
+				4E517FD127008B0C0021967F /* Prototypes */,
+				4E67161E271330A1003BD400 /* MainView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -340,7 +341,6 @@
 				4E517FD227008B350021967F /* Style */,
 				4E209E0C271C9D6100B29C27 /* View */,
 				4EF4B6DF26ECF6E100CB5D09 /* GeekBrains_VK_SwiftUIApp.swift */,
-				4E67161E271330A1003BD400 /* MainView.swift */,
 				4EF4B6E326ECF6E200CB5D09 /* Assets.xcassets */,
 				4EF4B6E826ECF6E200CB5D09 /* Info.plist */,
 				4EF4B6E526ECF6E200CB5D09 /* Preview Content */,
