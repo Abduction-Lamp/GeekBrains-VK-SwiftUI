@@ -14,15 +14,10 @@ struct ContentView: View {
     @State private var shouldShowMainView: Bool = false
     
     var body: some View {
-        NavigationView {
-            HStack {
-                SignIn(isUserAuthorization: $shouldShowMainView)
-                
-                NavigationLink(destination: MainView(), isActive: $shouldShowMainView) {
-                    EmptyView()
-                }
-            }
+        HStack {
+//            SignIn(isUserAuthorization: $shouldShowMainView)
+            SignInWebView(isUserAuthorization: $shouldShowMainView)
+                .fullScreenCover(isPresented: $shouldShowMainView, content: MainView.init)
         }
-        .navigationViewStyle(StackNavigationViewStyle())
     }
 }
