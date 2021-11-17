@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-import Kingfisher
+import SDWebImageSwiftUI
 
 
 struct PhotoFullScreen: View {
@@ -36,9 +36,15 @@ struct PhotoFullScreen: View {
                     .aspectRatio(contentMode: .fit)
                     .foregroundColor(.gray)
             } else {
-                KFImage(url)
+                WebImage(url: url)
+                    .renderingMode(.original)
                     .resizable()
-                    .aspectRatio(contentMode: .fit)
+                    .placeholder {
+                        LoadingImageView()
+                            .frame(width: 150, height: 150, alignment: .center)
+                    }
+                    .transition(.fade(duration: 0.25))
+                    .scaledToFit()
             }
             
             VStack {

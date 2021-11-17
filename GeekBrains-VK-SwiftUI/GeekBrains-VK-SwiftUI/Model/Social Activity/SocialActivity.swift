@@ -58,5 +58,17 @@ final class SocialActivity {
         enum CodingKeys: String, CodingKey {
             case count
         }
+        
+        public func getCountString() -> String {
+            if count >= 1_000_000 {
+                return String(format: "%.1fM", Double(count)/1_000_000)
+            } else if count >= 10_000 {
+                return String(format: "%.1fK", Double(count)/10_000)
+            } else if count >= 1000 {
+                return String(format: "%.1fK", Double(count)/1000)
+            }
+            return count.description
+        }
     }
 }
+

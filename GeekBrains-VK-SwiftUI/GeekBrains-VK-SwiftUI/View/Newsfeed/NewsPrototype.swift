@@ -7,7 +7,7 @@
 
 import SwiftUI
 import Kingfisher
-
+import SDWebImageSwiftUI
 
 struct NewsPrototype: View {
     
@@ -30,11 +30,22 @@ struct NewsPrototype: View {
                 .fixedSize(horizontal: false, vertical: true)
                 .padding(.leading, 5.0)
             
-            KFImage(model.photo.url)
+            WebImage(url: model.photo.url)
                 .resizable()
-                .aspectRatio(contentMode: .fit)
+                .placeholder {
+                    ProgressView()
+                        .progressViewStyle(DefaultProgressViewStyle())
+                }
+                .transition(.fade(duration: 0.25))
+                .scaledToFit()
             
-            SocialActivityPanel(likes: model.likes, comments: model.comments, reposts: model.reposts, views: model.views)
+            SocialActivityPanel(likes: model.likes,
+                                comments: model.comments,
+                                reposts: model.reposts,
+                                views: model.views,
+                                ownerId: model.ownerId,
+                                itemId: model.id,
+                                type: model.type)
                 .padding(.bottom, 5.0)
         }
     }

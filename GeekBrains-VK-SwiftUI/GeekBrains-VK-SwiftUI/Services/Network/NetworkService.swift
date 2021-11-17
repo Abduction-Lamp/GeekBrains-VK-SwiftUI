@@ -23,6 +23,7 @@ final class NetworkService {
         groups = GroupsRequests(session: session)
         newsfeed = NewsfeedRequests(session: session)
         photos = PhotosRequests(session: session)
+        likes = LikesRequests(session: session)
     }
     
     
@@ -30,4 +31,5 @@ final class NetworkService {
     let groups: GroupsRequests
     let newsfeed: NewsfeedRequests
     let photos: PhotosRequests
+    let likes: LikesRequests
 }

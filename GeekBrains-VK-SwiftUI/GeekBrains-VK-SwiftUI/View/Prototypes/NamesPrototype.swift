@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-import Kingfisher
+import SDWebImageSwiftUI
 
 struct NamesPrototype: View {
     
@@ -20,16 +20,30 @@ struct NamesPrototype: View {
         name = model.name
     }
     
+    @State var isScaled: Bool = false
+    
     
     var body: some View {
         
         HStack(alignment: .center, spacing: 10, content: {
-            KFImage(avatar)
+            WebImage(url: avatar)
                 .resizable()
                 .cancelOnDisappear(true)
                 .frame(width: 50.0, height: 50.0)
                 .modifier(CircleAndShadow(radius: 25.0, shadowColor: .gray))
                 .padding(.leading, 5.0)
+                .scaleEffect(isScaled ? 1.5 : 1)
+                .onTapGesture {
+                    withAnimation(.easeInOut(duration: 0.2)) {
+                        self.isScaled.toggle()
+                    }
+                    withAnimation(.interpolatingSpring(mass: 0.5,
+                                                       stiffness: 200,
+                                                       damping: 2,
+                                                       initialVelocity: 0)) {
+                        self.isScaled.toggle()
+                    }
+                }
                     
             Text(name)
                 .bold()
