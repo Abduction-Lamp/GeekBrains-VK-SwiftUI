@@ -18,6 +18,15 @@ final class PhotoViewModel: Identifiable {
     var sizes:   [PhotoSizes]
     var text:    String
     
+    var isLike: Bool {
+        if let like = likes?.userLikes,
+           like > 0 {
+            return true
+        }
+        return false
+    }
+    
+    
     internal init(model: Photo) {
         self.id = model.id
         self.ownerId = model.ownerId
@@ -45,7 +54,7 @@ final class PhotoViewModel: Identifiable {
 }
 
 
-final class PhotosView: ObservableObject {
+final class PhotoViewModelList: ObservableObject {
     
     public var photos: [PhotoViewModel] = []
 
@@ -60,5 +69,50 @@ final class PhotosView: ObservableObject {
                 }
             }
         }
+    }
+    
+    public func like(id: Int) -> (isLike: Bool?, count: Int?) {
+        if let index = photos.firstIndex(where: { $0.id == id }) {
+            let network = NetworkService.instance
+            if let isLike = photos[index].likes?.userLikes {
+                var countLike: Int? = nil
+                if isLike == 0 {
+                    network.likes.add(ownerId: photos[index].ownerId, itemId: id, type: "photo") { [weak self] count in
+                        guard let self = self else { return }
+                        if let count = count {
+                            countLike = count
+                            self.photos[index].likes?.count = count
+                            self.photos[index].likes?.userLikes = 1
+                            DispatchQueue.main.async {
+                                self.objectWillChange.send()
+                            }
+                        }
+                    }
+                    return (isLike: true, count: countLike)
+                } else {
+                    network.likes.delete(ownerId: photos[index].ownerId, itemId: id, type: "photo") { [weak self] count in
+                        guard let self = self else { return }
+                        if let count = count {
+                            countLike = count
+                            self.photos[index].likes?.count = count
+                            self.photos[index].likes?.userLikes = 0
+                            DispatchQueue.main.async {
+                                self.objectWillChange.send()
+                            }
+                        }
+                    }
+                    return (isLike: false, count: countLike)
+                }
+            }
+        }
+        return (isLike: nil, count: nil)
+    }
+}
+
+
+extension PhotoViewModel: Equatable {
+    
+    static func == (lhs: PhotoViewModel, rhs: PhotoViewModel) -> Bool {
+        lhs.id == rhs.id
     }
 }

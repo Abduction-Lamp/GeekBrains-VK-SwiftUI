@@ -10,8 +10,11 @@ import SwiftUI
 
 struct FriendsTable: View {
     
-    @ObservedObject var list = FriendsListWithSections()
+    @ObservedObject private var list = FriendsListWithSections()
+    @State private var isOneLoadData: Bool = true
+    
     @Binding var mark: MarkNavigtion
+    
     
     var body: some View {
         List {
@@ -26,6 +29,11 @@ struct FriendsTable: View {
                 }
             }
         }
-        .onAppear(perform: list.fetch)
+        .onAppear() {
+            if isOneLoadData {
+                isOneLoadData = false
+                list.fetch()
+            }
+        }
     }
 }

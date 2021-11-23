@@ -10,8 +10,11 @@ import SwiftUI
 
 struct GroupsTable: View {
     
-    @ObservedObject var list = GroupsView()
+    @ObservedObject private var list = GroupViewModelList()
+    @State private var isOneLoadData: Bool = true
+    
     @Binding var mark: MarkNavigtion
+    
     
     var body: some View {
         List {
@@ -25,6 +28,11 @@ struct GroupsTable: View {
             }
         }
         .listStyle(PlainListStyle())
-        .onAppear(perform: list.fetch)
+        .onAppear() {
+            if isOneLoadData {
+                isOneLoadData = false
+                list.fetch()
+            }
+        }
     }
 }

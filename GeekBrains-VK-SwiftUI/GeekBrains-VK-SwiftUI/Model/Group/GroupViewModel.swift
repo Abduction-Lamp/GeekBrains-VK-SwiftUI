@@ -7,8 +7,7 @@
 
 import Foundation
 
-
-final class GroupViewModel: SameDataSetProtocol, Identifiable {
+final class GroupViewModel: NamesViewProtocol, Identifiable {
     var id:     Int
     var name:   String
     var avatar: URL?
@@ -35,7 +34,7 @@ extension GroupViewModel: Equatable {
 
 
 
-final class GroupsView: ObservableObject {
+final class GroupViewModelList: ObservableObject {
 
     @Published var groups: [GroupViewModel] = []
 

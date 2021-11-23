@@ -8,7 +8,7 @@
 import SwiftUI
 
 
-final class FriendViewModel: SameDataSetProtocol, Identifiable {
+final class FriendViewModel: NamesViewProtocol, Identifiable {
     
     var id: Int
     

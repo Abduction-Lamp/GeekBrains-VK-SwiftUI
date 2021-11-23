@@ -15,7 +15,7 @@ struct SearchBar: View {
         NotificationCenter.default.publisher(for: UIResponder.keyboardDidHideNotification).map { _ in false }
     )
     
-    @EnvironmentObject var searchList: GroupsView
+    @EnvironmentObject var searchList: GroupViewModelList
     @State var searchText: String = ""
 
     
