@@ -8,18 +8,14 @@
 import SwiftUI
 import WebKit
 
+
 struct SignInWebView: UIViewRepresentable {
-    
-    fileprivate var navigationDelegate: NSObject & WKNavigationDelegate
-    
-    init(isUserAuthorization: Binding<Bool>) {
-        navigationDelegate = WebViewNavigationDelegate(isUserAuthorization: isUserAuthorization)
-    }
-    
+
+    @Binding var mark: MarkNavigtion
     
     func makeUIView(context: Context) -> WKWebView {
         let webView = WKWebView()
-        webView.navigationDelegate = navigationDelegate
+        webView.navigationDelegate = context.coordinator
         return webView
     }
     
@@ -28,18 +24,26 @@ struct SignInWebView: UIViewRepresentable {
             uiView.load(request)
         }
     }
+    
+    func makeCoordinator() -> WebViewNavigationDelegate {
+        return WebViewNavigationDelegate(vkLoginWebView: self)
+    }
 }
 
 
 class WebViewNavigationDelegate: NSObject, WKNavigationDelegate {
     
-    @Binding private var isUserAuthorization: Bool
+    let vkLoginWebView: SignInWebView
     
-    init(isUserAuthorization: Binding<Bool>) {
-        _isUserAuthorization = isUserAuthorization
+    internal init(vkLoginWebView: SignInWebView) {
+        self.vkLoginWebView = vkLoginWebView
     }
+
     
-    func webView(_ webView: WKWebView, decidePolicyFor navigationResponse: WKNavigationResponse, decisionHandler: @escaping (WKNavigationResponsePolicy) -> Void) {
+    func webView(_ webView: WKWebView,
+                 decidePolicyFor navigationResponse: WKNavigationResponse,
+                 decisionHandler: @escaping (WKNavigationResponsePolicy) -> Void) {
+        
         guard let url = navigationResponse.response.url,
               url.path == "/blank.html",
               let fragment = url.fragment else {
@@ -75,7 +79,7 @@ class WebViewNavigationDelegate: NSObject, WKNavigationDelegate {
         print("TOKEN:\n\(token)")
         print("USER:\n\(user)")
         
+        vkLoginWebView.mark = .MainTabView
         decisionHandler(.cancel)
-        isUserAuthorization = true
     }
 }

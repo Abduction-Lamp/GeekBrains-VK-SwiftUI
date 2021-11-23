@@ -11,10 +11,8 @@ import SwiftUI
 struct SearchAndAddingNewGroup: View {
     
     @Environment(\.presentationMode) var presentationMode
-    @EnvironmentObject var list: GroupsView
-    
     @StateObject var searchList = GroupsView()
-    
+    @Binding var mark: MarkNavigtion
     
     var body: some View {
         VStack {
@@ -22,20 +20,19 @@ struct SearchAndAddingNewGroup: View {
                 .environmentObject(searchList)
             
             List(searchList.groups) { group in
-                Button(
-                    action: {
-                        self.list.join(group: group)
-                        self.presentationMode.wrappedValue.dismiss()
-                    },
-                    label: {
-                        NamesPrototype(model: group)
+                NamesPrototype(model: group)
+                    .onTapGesture {
+                        searchList.join(group: group)
+                        mark = .StepBack
                     }
-                )
             }
         }
         .navigationBarTitle("Поиск по группам", displayMode: .inline)
         .onTapGesture {
             UIApplication.shared.endEditing()
+        }
+        .onDisappear() {
+            self.mark = .ViewDisappear
         }
     }
 }

@@ -8,15 +8,10 @@
 import SwiftUI
 
 
-protocol NewGroapDelegate {
-    func addNewGroup(group: GroupViewModel)  -> Void
-}
-
-
 struct GroupsTable: View {
     
     @ObservedObject var list = GroupsView()
-        
+    @Binding var mark: MarkNavigtion
     
     var body: some View {
         List {
@@ -30,16 +25,6 @@ struct GroupsTable: View {
             }
         }
         .listStyle(PlainListStyle())
-        .navigationBarItems(trailing: makeButtomAdd())
-        .navigationBarTitle("Группы", displayMode: .inline)
         .onAppear(perform: list.fetch)
     }
-    
-    private func makeButtomAdd() -> some View {
-        let buttom = NavigationLink(destination: SearchAndAddingNewGroup().environmentObject(list)) {
-            Image(systemName: "plus")
-        }
-        return buttom
-    }
 }
-
